@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import TodoSettings from './TodoSettings'
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, url }) => {
+    const [settingsBtn, changeSettingsBtn ] = useState(false)
+
     return (
-        <div>
-            <h3>{todo.title}</h3>
-            <p>{todo.class}</p>
-            <p>{todo.date}</p>
-        </div>
+        <>
+            <div className="todo" onClick={ e => changeSettingsBtn(!settingsBtn) }>
+                <h3>{todo.title}</h3>
+                <p>{todo.course}</p>
+                <p>{todo.date}</p>
+            </div>
+            <div>
+                { settingsBtn && <TodoSettings todo={todo} url={url}/> }
+            </div>
+        </>
     )
 }
 

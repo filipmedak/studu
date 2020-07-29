@@ -2,32 +2,38 @@ import React, { useContext, useEffect } from 'react'
 import Todo from './Todo'
 import AppContext from '../../context/app-context'
 
-const TodoList = () => {
+const TodoList = ({ url }) => {
     const { todos, dispatch } = useContext(AppContext)
-    
-    const url = window.location.pathname.slice(1)
 
     useEffect(() => {
-        let todos = JSON.parse(localStorage.getItem(url))
+        let todos = JSON.parse(localStorage.getItem('todos'))
 
         if(todos){
-            dispatch({ type: 'POPULATE_TODOS', todos})
-        } else{
-            todos = []
-            dispatch({ type: 'POPULATE_TODOS', todos})
+            dispatch({ type: 'POPULATE_TODOS', todos })
         }
-
-        // eslint-disable-next-line
-    }, [ url ])
+    // eslint-disable-next-line
+    }, [])
 
     useEffect(() => {
-        localStorage.setItem(url, JSON.stringify(todos))
-        // eslint-disable-next-line
-    }, [todos])
+        localStorage.setItem('todos', JSON.stringify(todos))
+    }, [ todos ])
 
-    return todos.map((todo) => (
-        <Todo key={todo.id} todo={todo} />
-    ))
+    // eslint-disable-next-line
+    const filteredTodos = todos.filter((todo) => {
+        if(todo.type === url && todo.finished === false){
+            return todo
+        } else if (url === 'finished' && todo.finished === true){
+            return todo
+        }
+    })
+
+    if(filteredTodos.length > 0){
+        return filteredTodos.map((todo) => {
+            return <Todo key={todo.id} todo={todo} url={url}/>
+        })
+    } else{
+        return <p>No todos. Please add one.</p>
+    }    
 }
 
 export { TodoList as default }
