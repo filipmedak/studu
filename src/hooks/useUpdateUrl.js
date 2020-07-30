@@ -1,7 +1,6 @@
+// Simple Custom Hook that grabs users current browser url, cleans it and returns as string
 const useUpdateUrl = () => {
-    const url = window.location.pathname.slice(1)
-
-    return url
+    return window.location.pathname.slice(1)
 }
 
 export { useUpdateUrl as default }
