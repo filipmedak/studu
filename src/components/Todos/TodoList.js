@@ -1,29 +1,12 @@
 // React Components
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 // Custom Components
 import Todo from './Todo'
 // Logic Components
 import AppContext from '../../context/app-context'
 
 const TodoList = ({ url }) => {
-    const { todos, dispatch } = useContext(AppContext)
-
-    // Grab array of objects from localStorage and save it in todo global variable - if exist render
-    // Hook that runs only once on page load
-    useEffect(() => {
-        let todos = JSON.parse(localStorage.getItem('todos'))
-
-        if(todos){
-            dispatch({ type: 'POPULATE_TODOS', todos })
-        }
-    // eslint-disable-next-line
-    }, [])
-
-    // Push updated todos array in localStorage
-    // Hook that runs every time on todo array change
-    useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos))
-    }, [ todos ])
+    const { todos } = useContext(AppContext)
 
     // Filtering logic that seperates ongoing/finished todos & renders depending on current url
     const filteredTodos = todos.filter((todo) => {

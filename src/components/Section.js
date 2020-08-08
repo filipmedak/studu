@@ -1,11 +1,11 @@
 // React Components
 import React, { useContext } from 'react'
 // Custom Components
-import AddTodoForm from '../Todos/AddTodoForm'
-import TodoList from '../Todos/TodoList'
+import AddTodoForm from './Todos/AddTodoForm'
+import TodoList from './Todos/TodoList'
 // Logic Components
-import AppContext from '../../context/app-context'
-import useUpdateUrl from '../../hooks/useUpdateUrl'
+import AppContext from '../context/app-context'
+import useUpdateUrl from '../hooks/useUpdateUrl'
 
 const Section = () => {
     // Global variables grabbed and defined from Context Hook

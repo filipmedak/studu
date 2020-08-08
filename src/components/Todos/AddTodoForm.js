@@ -5,7 +5,7 @@ import AppContext from '../../context/app-context'
 import { v4 as uuidv4 } from 'uuid'
 
 const AddTodoForm = ({ todo }) => {
-    const { dispatch, addBtn, toggleAddBtn, editBtn, toggleEditBtn } = useContext(AppContext)
+    const { dispatch, addBtn, toggleAddBtn, editBtn, toggleEditBtn, classes } = useContext(AppContext)
     // Local variables for seperate todo information -- Variables are filled if todo exists (editing todos)
     const [id, setId] = useState( todo ? todo.id : uuidv4())
     const [title, setTitle] = useState( todo ? todo.title : '' )
@@ -45,32 +45,42 @@ const AddTodoForm = ({ todo }) => {
 
     return (
         <div>
+            {/* On input values change, local variables are updated */}
             <form onSubmit={addTodo}>
-                {/* On input values change, local variables are updated */}
+                {/* todo Title input */}
                 <input value={title} onChange={ (e) => setTitle(e.target.value) } />
+                
+                {/* todo Type input */}
                 <select value={todoType} onChange={ (e) => setType(e.target.value) }>
                     <option value="" hidden>Select Task Type</option>
-                    <option value="important">important</option>
-                    <option value="homework">homework</option>
-                    <option value="notes">notes</option>
+                    <option value="important">Important</option>
+                    <option value="homework">Homework</option>
+                    <option value="notes">Notes</option>
                 </select>
+
+                {/* todo Class input */}
                 <select value={course} onChange={ (e) => setCourse(e.target.value) }>
                     <option value="" hidden>Select Class</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="PHP Programming">PHP Programming</option>
-                    <option value="Internet Marketing">Internet Marketing</option>
+                    { classes.map((classOption) => {
+                        return (
+                            <option key={classOption} value={classOption}>{classOption}</option>
+                        )
+                    }) } 
                 </select>
+
+                {/* todo Date input */}
                 <input 
                     type="date" 
                     value={date} 
                     onChange={ (e) => setDate(e.target.value) }
-
                 /> 
+
                 {/* Submit button is disabled if title, type & course aren't selected */}
                 <button
                     disabled={ title.length < 1 || course.length < 1 || todoType.length < 1 } >
                     Add Todo
                 </button>
+
                 {/* Logic that removes form component (either edit or add) */}
                 <button 
                     type="button" 

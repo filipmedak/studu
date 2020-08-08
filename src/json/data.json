@@ -1,0 +1,17 @@
+{
+    "Undergraduate" : {
+        "Multimedia Computing" : {
+            "3" : ["Visual Communications Design", "Electroacoustic and Professional Audio Equipment", "Standards in Internet Technology Application", "Introduction to Administration of Operating Systems", "Introduction to Marketing and Media Communications", "Multimedia Publishing"]
+        }, 
+        "Software Engineering" : {
+            "3" : ["Authentication Systems and Databases", "Object-Oriented Programming", "Database Development", "Basics of Business Communication", "Standards in Internet Technology Application", "Probability and Statistics"]
+        }
+    },
+
+    "Graduate" : {
+        "Multimedia Computing" : {
+            "1" : ["No", "No", "No", "No", "No", "No"],
+            "2" : ["Yes", "Yes", "Yes", "Yes", "Yes", "Yes"]
+        }
+    }
+}

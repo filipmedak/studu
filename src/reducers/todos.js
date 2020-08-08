@@ -20,8 +20,10 @@ const todosReducer = (state, action) => {
             return state.map(
                 (todo) => 
                     action.id === todo.id 
-                    && { id: action.id, title: action.title, type: action.todoType, course: action.course, date: action.date, finished: action.finished }
+                    && { id: action.id, title: action.title, type: action.todoType, course: action.course, date: action.date, finished: action.finished, semester: action.semester }
             )
+        case 'DELETE_FINISHED':
+            return state.filter((note) => note.finished !== true)
         default:
             return state
     }
