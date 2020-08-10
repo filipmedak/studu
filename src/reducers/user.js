@@ -9,10 +9,8 @@ const userReducer = (state, action) => {
             return { ...state, name: action.name }
         case 'CHANGE_PROGRAM':
             return { ...state, program: action.program, course: action.course, semester: action.semester, classes: action.classes}
-        case 'ADD_CLASS':
-            return state
-        case 'DELETE_CLASS':
-            return state
+        case 'ADD_REMOVE_CLASS':
+            return { ...state, classes: action.classList }
         default:
             return state
     }

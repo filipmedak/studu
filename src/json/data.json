@@ -1,17 +1,92 @@
 {
     "Undergraduate" : {
         "Multimedia Computing" : {
-            "3" : ["Visual Communications Design", "Electroacoustic and Professional Audio Equipment", "Standards in Internet Technology Application", "Introduction to Administration of Operating Systems", "Introduction to Marketing and Media Communications", "Multimedia Publishing"]
+            "1" : ["English for IT", "Physical Education 1", "Mathematics 1", "Basics of Digital Electronics", "Programming", "Computer Support for Office Administration", "Introduction to Computer Networks"],
+            "2" : ["Computer Architecture", "Kinesiological culture 2", "Mathematics 2", "Operating systems", "Basics of Business Economy", "Applied Physics", "Introduction to Databases"],
+            "3" : ["Visual Communications Design", "Electroacoustic and Professional Audio Equipment", "Standards in Internet Technology Application", "Introduction to Administration of Operating Systems", "Introduction to Marketing and Media Communications", "Multimedia Publishing", "Information Systems Management"],
+            "4" : ["Project Management Methodology", "Project Approach to Development of Video Games", "Introduction to Object-Oriented Programming", "Web and User Interface Design", "Collaboration Systems", "Sound Processing", "Security of Information Systems", "Introduction to Digital Photography and Processing"],
+            "5" : ["Advanced web design", "Basics of Business Communication", "PHP Programming", "Introduction to Video Production", "Vector 2D Animations", "Web Server Technologies"],
+            "6" : ["3D Modelling and Texturing", "Internet Marketing", "Final Thesis", "Content Management Systems", "Application Development for Mobile Devices", "Postproduction of Digital Video"]
         }, 
         "Software Engineering" : {
-            "3" : ["Authentication Systems and Databases", "Object-Oriented Programming", "Database Development", "Basics of Business Communication", "Standards in Internet Technology Application", "Probability and Statistics"]
+            "1" : ["English for IT", "Physical Education 1", "Mathematics 1", "Basics of Digital Electronics", "Programming", "Computer Support for Office Administration", "Introduction to Computer Networks"],
+            "2" : ["Computer Architecture", "Mathematics 2", "Operating systems", "Basics of Business Economy", "Data Structures and Algorithms", "Introduction to Databases"],
+            "3" : ["Authentication Systems and Databases", "Object-Oriented Programming", "Database Development", "Basics of Business Communication", "Standards in Internet Technology Application", "Probability and Statistics"],
+            "4" : ["Object-Oriented Programming - lab in .NET environment", "Java Programming 1", "Project Management", "Project Approach to Applications Development", "Development of Web Applications", "Security of Information Systems 1"],
+            "5" : ["Organization and Management", "Accessing Data from Program Code", "Software Engineering", "Management of Information Systems", "Application Development for Mobile Devices", "Java programming 2", "Decision-Making Support Systems"],
+            "6" : ["Interoperability of Information Systems", "Final Thesis", "Designing and developing a complete application solution", "Information Systems in Business Administration", "ICT tools in project management", "Java Web Programming"]
+        },
+        "System Engineering" : {
+            "1" : ["English for IT", "Physical Education 1", "Mathematics 1", "Basics of Digital Electronics", "Programming", "Computer Support for Office Administration", "Introduction to Computer Networks"],
+            "2" : ["Computer Architecture", "Kinesiological culture 2", "Mathematics 2", "Operating systems", "Basics of Business Economy", "Computer Networks 2", "Introduction to Databases"],
+            "3" : ["Administration of Operating Systems", "Authentication Systems and Databases", "Basics of Business Communication", "Open Source Operating Systems", "Computer Networks 3", "Probability and Statistics"],
+            "4" : ["Advanced Administration of Open Source Operating Systems", "Operating Systems - Network Infrastructure and Services", "Project Management", "Security of Information Systems 1", "IT Networks Security", "Virtualization of IT infrastructure 1"],
+            "5" : ["Collaboration Systems", "Organization and Management", "Planning of Advanced Infrastructure", "Management of Information Systems", "Backup and recovery of IT systems", "Security of Information Systems 2", "Implementation of Information Systems", "IT Infrastructure Virtualization 2"],
+            "6" : ["Wireless Computer Networks", "Final Thesis", "Information Systems in Business Administration", "System engineering - Practicum", "ICT tools in project management", "Implementation of computing in the Cloud", "Industrial Computing Networks"]
+        }, 
+        "Digital Marketing" : {
+            "1" : ["English", "Physical Education 1", "Mathematics 1", "Introdution to Economics", "Computer Support for Office Administration", "Introduction to Marketing and Media Communications"],
+            "2" : ["Visual Communications Design", "Kinesiological culture 2", "Project Management Methodology", "Customer Behavior", "Sales and Negotiation", "Statistics"],
+            "3" : ["Digital advertising", "Market research", "Public Relations", "Computer tools in visual communication", "Standards in Internet Technology Application"],
+            "4" : ["Design of Interaction Systems", "Social Media and Social Networks", "Interaction analysis in digital marketing", "Marketing on Search engines and Advertising Networks", "Legal regulation and self-regulation"],
+            "5" : ["E- commerce-Customer Relationship Management", "Integrated marketing communication", "Content Marketing", "Project: Project in Cooperation with the Industry - Situation Analysis with Digital Marketing Approach Plan", "Creativity and creative expression", "Psychology of User Experience", "Digital Projects Development and Team Management"],
+            "6" : ["E-business - Integrated commercial projects", "Integrated Marketing", "Entrepreneurship", "Final Paper: Project in Cooperation with the Industry - Digital Marketing Strategy", "Organization of digital agencies", "Psychology In Marketing Communications", "Development and Management of Multimedia Contents"]
+        }, 
+        "Visual Communications Design" : {
+            "1" : ["Drawing - Drawing Techniques I", "English Language 1", "Computer Science", "Marketing", "History of Visual Communications Design", "Psychology of Visual Communications Design", "Team Work and Conflict Management", "Visual Design I - Basic Elements and Principles"],
+            "2" : ["Drawing 2 - Drawing techniques", "English Language 2", "Creative Process", "Creative Writing", "Entrepreneurship in Market Communications", "Digital Forms Design", "Typography 1", "Visual Design 3"],
+            "3" : ["Drawing 3 - Art Structures", "Film/Video/TV - Introduction to Video Production", "Photography 1", "Photographic Content Design", "Interactions Design", "Typography 2", "Visual Design 3 - Logotypes and Book of Standards", "Web and Screen Design - Interaction Systems"],
+            "4" : ["Drawing 4 - Art Structures", "Photography 2", "Multimedia Content Design", "Practicum", "Contemporary Society", "Visual Design 4 - Visual Identity", "Web and Screen Design 2 - Standards in Internet Technology Application", "Digital Illustration", "Film/Video/TV; Production and Post Production"],
+            "5" : ["3D Design I", "Culture and aesthetics of Visual Communications Design", "Public Visual Communications Design", "Print and Color", "Process Management in Visual Communications Design 1", "Visual Design 5 - Packaging", "Web and Screen Design 3 - User Interface Design", "Digital Illustration 2", "Film/Video/TV 3 - Postproduction"],
+            "6" : ["3D Design 2", "Visual Design of Spatial Market Communications", "Process Management in Visual Communications Design 2", "Visual Design 6 - Individual Project", "Web and Screen Design 4 - Application Design", "Final Thesis", "Animated Graphics", "Research Draft"]
+        }, 
+        "3D Modeling" : {
+            "1" : ["Drawing - Drawing Techniques I", "English Language 1", "Computer Science", "Marketing", "History of Visual Communications Design", "Psychology of Visual Communications Design", "Team Work and Conflict Management", "Visual Design I - Basic Elements and Principles"],
+            "2" : ["Drawing 2 - Drawing techniques", "English Language 2", "Creative Process", "Creative Writing", "Digital Forms Design", "Entrepreneurship in Market Communications", "Typography 1", "Introduction to 3D modeling"],
+            "3" : ["Drawing 3 - Art Structures", "Film/Video/TV - Introduction to Video Production", "Photography 1", "Organic Form Design", "Photographic Content Design", "Basics of Animation", "Light and Color", "Typography 2"],
+            "4" : ["Character Animation", "Drawing 4 - Art Structures", "Photography 2", "Body Mechanics", "Solid Form Modeling", "Practicum", "Contemporary Society", "Digital Illustration", "Film/Video/TV; Production and Post Production"],
+            "5" : ["3D Lighting and Rendering", "Skeletal Animation", "Culture and aesthetics of Visual Communications Design", "Public Visual Communications Design", "Plastic Anatomy", "Texturing", "Process Management in Visual Communications Design 1", "Digital Illustration 2", "Film/Video/TV 3 - Postproduction"],
+            "6" : ["Implementation of Web Content", "Comparative Anatomy", "The Principles of Character Conceptualization", "Portfolio", "Process Management in Visual Communications Design 2", "Final Thesis", "Animated Graphics", "Research Draft"]
         }
+
     },
 
     "Graduate" : {
-        "Multimedia Computing" : {
-            "1" : ["No", "No", "No", "No", "No", "No"],
-            "2" : ["Yes", "Yes", "Yes", "Yes", "Yes", "Yes"]
+        "Software Engineering" : {
+            "1" : ["Advanced Development of User Applications for Mobile Devices", "Entrepreneurship", "Negotiation and conflict resolution", "Software Development for Industrial and Mobile Robotics", "Computer Games Development", "Data Warehouses and Business Intelligence", "Managing Quality in IT Projects"],
+            "2" : ["Rapid Development of Java Applications Using Programming Frameworks", "Internet of things", "Creativity and Critical Thinking", "Advanced Application Development Based on Development Templates", "Cryptography", "Discovering Knowledge from Databases", "Management of Innovation"],
+            "3" : ["Advanced Information Systems Interoperability", "Advanced Programming Paradigms", "Advanced Client - Side Scripting", "Development of 3D Games", "Management of Information Services", "E -business", "Business Process Modelling"],
+            "4" : ["Graduation Thesis"]
+        },
+        "System Engineering" : {
+            "1" : ["Architecture and Design of IT Systems", "Entrepreneurship", "Security of Operating Systems", "Data Storage Systems", "Incidents Management in IT Systems", "Voice over Internet Protocol", "Managing Quality in IT Projects", "Introduction to cyber security"],
+            "2" : ["Development Trends in IT Infrastructure", "Creativity and Critical Thinking", "Advanced Scripting", "Penetration Testing", "New Generation Firewalls", "Identity Management", "Management of Innovation", "High availability using Open Source Operating Systems"],
+            "3" : ["Containers, Security and Microsegmentation", "Discovering and troubleshooting problems in IT systems", "Computer Forensics", "Redundancy of IT Services and Applications", "Management of Information Services", "Implementation of Wireless Local Area Networks", "Quality of Network Services", "Advanced Protocols for Service Providers", "Cloud computing security"],
+            "4" : ["Graduation Thesis"]
+        },
+        "Data Science" : {
+            "1" : ["Entrepreneurship", "Negotiation and conflict resolution", "Data Preparation", "Data Warehouses and Business Intelligence", "Introduction to Data Science", "Disruptive technologies", "Managing Quality in IT Projects"],
+            "2" : ["Social Network Analysis", "Creativity and Critical Thinking", "Quantitative methods of data processing", "Machine Learning Methods", "Security, privacy and ethics of digital data", "Internet of things", "Management of Innovation"],
+            "3" : ["Affective Computing", "Analytical techniques based on large data sets", "Advanced Machine Learning Methods", "Management of Information Services", "Visualisation and analytical software tools", "Cloud Analysis", "Structured Analytical Techniques"],
+            "4" : ["Graduation Thesis"]
+        },
+        "Game Development" : {
+            "1" : ["Physical concepts in Computer Games", "Creativity and Critical Thinking", "Computer Game Planning", "Computer Games Development", "Management of Information Services", "Monetization of computer games", "Management of Innovation", "Managing Quality in IT Projects"],
+            "2" : ["Developing Computer Game Scenario", "Advanced development of computer games", "Entrepreneurship", "Development of 3D Games", "Development of Multiplayer games", "E -business", "Internet of things", "Marketing of computer games"],
+            "3" : ["3D Modeling and Texturing in Computer Games", "Effects in computer games", "Practice: Development of computer games", "Negotiation and conflict resolution", "Application of virtual and expanded reality", "Ergonomics and Design of Software Applications", "Data Warehouses and Business Intelligence", "Computer Games Structure"],
+            "4" : ["Graduation Thesis"]
+        },
+        "Digital Marketing" : {
+            "1" : ["Behavioral economics", "Digital data in marketing", "Disruptive technologies", "Design thinking 1 : creativity and critical thinking", "Strategic management of digital campaigns", "Brand and reputation management"],
+            "2" : ["Network Analysis and social CRM", "Quantitative methods in marketing", "Marketing Strategies based on Data Sets", "International Marketing", "Application of game theory in marketing", "Security, privacy and ethics of digital data"],
+            "3" : ["Digital Transformation", "Innovation, product and service development", "Communication and presentation skills", "Alternative marketing channels and future technology", "Analytical software tools in marketing", "Interest organization marketing", "Visualization software tools in marketing"],
+            "4" : ["Graduation Thesis"]
+        },
+        "Design & Communications Management" : {
+            "1" : ["Integrated Marketing Communication", "Creative Economics", "Creative tools 1 - design of presentations", "Practicum 1", "Idea Management in Market Communications", "Process Management in Market Communications", "Multiculturalism and Identity", "Business English in Market Communications 1"],
+            "2" : ["Branding - Corporate Identity", "Creative Methods and Techniques in Market Communications", "Creative Tools 2 - User Interface Design", "Leadership", "Consumer Behaviour", "Practicum 2", "Business Ethics in Market Communications", "Business English in Market Communications 2"],
+            "3" : ["CRM - Customer Management", "Multicultural design", "Creative Tools 3 - Interactive Media", "Lateral Marketing", "Practicum 3", "Project Management in Market Communications", "Film Ideas in Market Communications", "Photography Ideas in Market Communications"],
+            "4" : ["Graduation Thesis"]
         }
     }
 }

@@ -5,14 +5,13 @@ import AddTodoForm from './AddTodoForm'
 // Logic Components
 import AppContext from '../../context/app-context'
 
-
 const TodoSettings = ({ todo, url }) => {
     const { dispatch, editBtn, toggleEditBtn } = useContext(AppContext)
 
     return (
         <div>
             {/* Nested conditional rendering depending if todo is new or existing (create or edit) */}
-            {url !== 'finished' 
+            { url !== 'finished' 
                 ?   <div>
                         { editBtn 
                             ?   <AddTodoForm todo={todo}/>

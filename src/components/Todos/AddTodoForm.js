@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react'
 // Logic Components
 import AppContext from '../../context/app-context'
+import MapSelect from '../../hooks/MapSelect'
 import { v4 as uuidv4 } from 'uuid'
 
 const AddTodoForm = ({ todo }) => {
@@ -61,11 +62,7 @@ const AddTodoForm = ({ todo }) => {
                 {/* todo Class input */}
                 <select value={course} onChange={ (e) => setCourse(e.target.value) }>
                     <option value="" hidden>Select Class</option>
-                    { classes.map((classOption) => {
-                        return (
-                            <option key={classOption} value={classOption}>{classOption}</option>
-                        )
-                    }) } 
+                    { MapSelect(classes) }
                 </select>
 
                 {/* todo Date input */}

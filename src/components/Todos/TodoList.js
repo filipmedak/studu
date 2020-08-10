@@ -6,11 +6,12 @@ import Todo from './Todo'
 import AppContext from '../../context/app-context'
 
 const TodoList = ({ url }) => {
-    const { todos } = useContext(AppContext)
+    const { todos, filterClass } = useContext(AppContext)
 
-    // Filtering logic that seperates ongoing/finished todos & renders depending on current url
+    // Filtering logic that seperates ongoing/finished todos & renders depending on current url and class if it's set
     const filteredTodos = todos.filter((todo) => {
-        if(todo.type === url && !todo.finished){
+        // Return todo only if type is same as url path, isn't finished and class matches the one from class filter
+        if(todo.type === url && !todo.finished && (filterClass && filterClass !== '' ? todo.course === filterClass : true)){
             return todo
         } else if (url === 'finished' && todo.finished){
             return todo
@@ -18,7 +19,7 @@ const TodoList = ({ url }) => {
             return false
         }
     })
- 
+
     // Conditional rendering depending on todo array length
     // Repeating React components require unique identificators (key value)
     return (

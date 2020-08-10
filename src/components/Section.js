@@ -2,6 +2,7 @@
 import React, { useContext } from 'react'
 // Custom Components
 import AddTodoForm from './Todos/AddTodoForm'
+import Filter from './Todos/Filter'
 import TodoList from './Todos/TodoList'
 // Logic Components
 import AppContext from '../context/app-context'
@@ -22,6 +23,7 @@ const Section = () => {
             <div>
                 { addBtn && <AddTodoForm />}
             </div>
+            <Filter />
             {/* Todo list render */}
             <TodoList url={ url }/>
         </div>

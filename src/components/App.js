@@ -18,6 +18,7 @@ const App = () => {
     // Global variables & functions spread throught components using Context Hook
     const [ todos, dispatch ] = useReducer(todosReducer, [])
     const [ user, userDispatch ] = useReducer(userReducer, {}) 
+    const [ filterClass, setFilterClass ] = useState('')
     const [ editBtn, toggleEditBtn ] = useState(false)
     const [ addBtn, toggleAddBtn ] = useState(false)
     const classes = user.id && user.classes
@@ -44,7 +45,7 @@ const App = () => {
     }, [ user ])
 
     return (
-        <AppContext.Provider value={{ todos, dispatch, user, userDispatch, data, classes, editBtn, toggleEditBtn, addBtn, toggleAddBtn }}>
+        <AppContext.Provider value={{ todos, dispatch, user, userDispatch, data, classes, filterClass, setFilterClass, editBtn, toggleEditBtn, addBtn, toggleAddBtn }}>
             <BrowserRouter>
                 {
                    !user.id && <UserForm />

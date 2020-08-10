@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react'
 // Logic Components
 import AppContext from '../context/app-context'
+import MapSelect from '../hooks/MapSelect'
 import useUpdateUrl from '../hooks/useUpdateUrl'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -92,13 +93,7 @@ const UserForm = ({ setProgramBtn }) => {
                 >
                     <option value="" hidden>Program:</option>
                     {/* Dynamic rendering for programs from JSON file */}
-                    {
-                        programs.map((program) => {
-                            return (
-                                <option key={program} value={program}>{program}</option>
-                            )
-                        })
-                    }
+                    { MapSelect(programs) }
                 </select>
 
                 {/* Course input */}
@@ -109,13 +104,7 @@ const UserForm = ({ setProgramBtn }) => {
                 >
                     <option value="" hidden>Course:</option>
                     {/* Dynamic rendering for courses from JSON file */}
-                    {
-                        program && courses.map((course) => {
-                            return (
-                                <option key={course} value={course}>{course}</option>
-                            )
-                        })
-                    }
+                    { program && MapSelect(courses) }
                 </select>
 
                 {/* Semester input */}
@@ -126,13 +115,7 @@ const UserForm = ({ setProgramBtn }) => {
                 >
                     <option value="" hidden>Semester:</option>
                     {/* Dynamic rendering for semesters from JSON file */}
-                    {
-                        course && semesters.map((semester) => {
-                            return (
-                                <option key={semester} value={semester}>{semester}</option>
-                            )
-                        })
-                    }
+                    { course && MapSelect(semesters) }
                 </select>
 
                 {/* Submit button */}
