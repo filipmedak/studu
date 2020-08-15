@@ -1,0 +1,23 @@
+// Footer (separate navigation)
+#footer_body{
+    grid-area: footer;
+    background: $dark-black;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 4fr 1fr;
+    z-index: 1000;
+
+    // Footer logo
+    ._algebra_white_logo{
+        max-height: $l-size;
+        justify-self: start;
+        margin-left: $m-size;
+    }
+
+    // Settings icon
+    ._ellipsis_v_icon{
+        font-size: $l-size;
+        justify-self: end;
+    }
+}

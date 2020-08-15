@@ -13,6 +13,12 @@ import todosReducer from '../reducers/todos'
 import userReducer from '../reducers/user'
 // Json files
 import data from '../json/data.json'
+// SASS files
+import '../styles/App.scss'
+// Font Awesome Logos
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faEdit, faCheck, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight, faLongArrowAltLeft, faExchangeAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faCalendarAlt, faBookmark } from '@fortawesome/free-regular-svg-icons'
 
 const App = () => {
     // Global variables & functions spread throught components using Context Hook
@@ -22,6 +28,9 @@ const App = () => {
     const [ editBtn, toggleEditBtn ] = useState(false)
     const [ addBtn, toggleAddBtn ] = useState(false)
     const classes = user.id && user.classes
+    const isUser = user.id ? true : false
+    // Font Awesome Library
+    library.add(faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faBookmark, faCalendarAlt, faCircle, faCheck, faEdit, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight,  faLongArrowAltLeft, faExchangeAlt, faPlusSquare )
 
     // Grab array of objects from localStorage and save it in todo global variable - if exist render
     // Hook that runs only once on page load
@@ -45,7 +54,7 @@ const App = () => {
     }, [ user ])
 
     return (
-        <AppContext.Provider value={{ todos, dispatch, user, userDispatch, data, classes, filterClass, setFilterClass, editBtn, toggleEditBtn, addBtn, toggleAddBtn }}>
+        <AppContext.Provider value={{ todos, dispatch, user, userDispatch, data, classes, filterClass, setFilterClass, editBtn, toggleEditBtn, addBtn, toggleAddBtn, isUser}}>
             <BrowserRouter>
                 {
                    !user.id && <UserForm />

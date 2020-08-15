@@ -1,0 +1,94 @@
+@import './settings_apperance';
+@import './settings_head';
+
+#settings_body {
+    // Global grid and margin
+    display: grid;
+    margin: $l-size;
+
+    // Button reset
+    button {
+        border: none;
+        background: none;
+    }
+
+    // Shared CSS settings 
+    // Main four settings rows (Apperance, Account, Classes, About)
+    ._settings_apperance, ._settings_account, ._settings_classes, ._settings_about {
+        display: grid;
+        grid-template-rows: 1fr; 
+        font-size: 2.25rem;
+        border-top: 1px solid lighten($silver, 40%);
+        padding: $l-size 0;
+
+        // Main columns
+        ._settings_main_btn {
+            display: grid;
+            grid-template-columns: 1fr 5fr 1fr;
+            justify-items: start;
+            font-weight: bold;
+
+            svg {
+                margin-right: $m-size;
+            }
+        }
+
+        // Arrow icon
+        svg {
+            justify-self: end;
+            margin-right: $s-size;
+        }
+    }
+
+    // Sub rows shared settings
+    ._settings_username_body, ._settings_program_body, ._settings_finished_body, ._settings_add_class_body, ._settings_remove_class_body {
+        display: grid;
+        margin: $m-size 0 $m-size $s-size;
+
+        button {
+            justify-self: start;
+            color: $silver;
+        }
+    }
+    
+    // Onclick shown sub rows details shared settings
+    ._settings_username_body, ._settings_add_class_body, ._settings_program_body, ._settings_remove_class_body {
+        form {
+            display: grid;
+            margin: $s-size 0;
+            row-gap: $s-size;
+
+            :first-child {
+                margin-top: $m-size;
+            }
+
+            button {
+                justify-self: center;
+                border: 2px solid $green;
+                width: 100%;
+                margin-top: $m-size;
+                padding: $s-size 0;
+                color: $green;
+                font-weight: bold;
+            }
+        }
+    }
+
+    ._settings_username_body, ._settings_add_class_body {
+        margin-top: $l-size;
+    }
+
+    // About section
+    ._settings_about_body {
+        font-size: $m-size;
+
+        :first-child {
+            margin-top: $l-size;
+        }
+
+        :last-child {
+            margin-top: $l-size;
+            font-weight: bold;
+        }
+    }
+}

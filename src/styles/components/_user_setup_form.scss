@@ -1,0 +1,38 @@
+// Startup User Form
+.user_setup_form {
+    // Base settings
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: $dark-black;
+    z-index: 20000;
+
+    // Logo
+    ._algebra_white_logo {
+        max-width: 100%;
+        margin-bottom: $m-size;
+    }
+
+    // Main form
+    form {
+        display: grid;
+        row-gap: $m-size;
+        margin: 50% 10%;
+        padding: $l-size $l-size $xl-size $l-size;
+        background: $lightest-black;
+        border-radius: $m-size;
+
+        select {
+            background: $white;
+        }
+
+        input, select {
+            padding: 0.5rem 0;
+        }
+
+        button {
+            padding: 1rem 0;
+            border-radius: $s-size;
+        }
+    }
+}

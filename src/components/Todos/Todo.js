@@ -4,6 +4,8 @@ import React, { useState, useContext } from 'react'
 import TodoSettings from './TodoSettings'
 // Logic Components
 import AppContext from '../../context/app-context'
+// FontAwesome Components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // Variables passed through as props
 const Todo = ({ todo, url }) => {
@@ -15,16 +17,27 @@ const Todo = ({ todo, url }) => {
         <>
             {/* Logic for hiding todos that are being edited */}  
             { !editBtn &&
-                <div className="todo" onClick={ e => changeSettingsBtn(!settingsBtn) }>
-                    <h3>{todo.title}</h3>
-                    <p>{todo.course}</p>
-                    <p>{todo.date}</p>
+                <div className="_todo_body" onClick={ e => changeSettingsBtn(!settingsBtn) }>
+                    <h3>
+                        <FontAwesomeIcon icon={['far', 'circle']} className="_circle_icon"/>
+                        {todo.title}
+                    </h3>
+
+                    <p className="_todo_details">
+                        <FontAwesomeIcon icon={['far', 'bookmark']} className="_bookmark_icon" />
+                        {todo.course}
+                    </p>
+                    
+                    <p className="_todo_details">
+                        { todo.date && <FontAwesomeIcon icon={['far', 'calendar-alt']} className="_calendar_alt_icon" /> }
+                        {todo.date}
+                    </p>
                 </div>
             }
             {/* Logic for displaying / hiding todo settings coponent */}  
-            <div>
-                { settingsBtn && <TodoSettings todo={todo} url={url}/> }
-            </div>
+            <>
+                { settingsBtn && <TodoSettings todo={todo} url={url} settingsBtn={settingsBtn} changeSettingsBtn={changeSettingsBtn}/> }
+            </>
         </>
     )
 }

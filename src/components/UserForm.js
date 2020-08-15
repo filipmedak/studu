@@ -5,11 +5,13 @@ import AppContext from '../context/app-context'
 import MapSelect from '../hooks/MapSelect'
 import useUpdateUrl from '../hooks/useUpdateUrl'
 import { v4 as uuidv4 } from 'uuid'
+// Images
+import logo from '../img/algebra_white_logo.png'
 
 // This a form component that is used for inital user setup and program change in settings
 const UserForm = ({ setProgramBtn }) => {
     // Global variables from context hook that will be changed depending on user input
-    let { userDispatch, data, classes } = useContext(AppContext)  
+    let { isUser, userDispatch, data, classes } = useContext(AppContext)  
 
     // Local variables needed for initial user setup
     const [id, setId] = useState(uuidv4())
@@ -62,12 +64,13 @@ const UserForm = ({ setProgramBtn }) => {
     }
 
     return (
-        <div>
+        <div className={!isUser ? "user_setup_form" : "" }>
             <form onSubmit={changeProgram}>
                 {/* Renders only if not on settings page */}
                 {
                     !isSettings && 
                         <>
+                            <img src={logo} className="_algebra_white_logo" alt="Logo" />
                             {/* Username input */}
                             <input 
                                 value={name} 
@@ -86,6 +89,7 @@ const UserForm = ({ setProgramBtn }) => {
                             </select>
                         </>
                 }
+                
                 {/* Program input */}
                 <select 
                     value={program} 
@@ -122,7 +126,7 @@ const UserForm = ({ setProgramBtn }) => {
                 <button 
                     disabled={!course}
                 >
-                    { isSettings ? 'Change User' : 'Add User' }
+                    { isSettings ? 'Change User' : 'Create User' }
                 </button>   
             </form>
         </div>

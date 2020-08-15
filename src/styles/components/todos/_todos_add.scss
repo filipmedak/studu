@@ -1,0 +1,60 @@
+#todos_body {
+    ._todos_add{
+
+        // Add todo form
+        form{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            row-gap: $m-size;
+            margin: $m-size;
+
+            // Reset css for form elements
+            input, select {
+                border: none;
+                width: 30rem;
+            }
+
+            // Single input allignment
+            ._todo_grid_column {
+                margin-left: $m-size;
+                display: grid;
+                grid-template-columns: 0.5fr 1fr;
+    
+                // Class if input is not defined
+                ._empty_item {
+                    color: $silver;
+                }
+    
+                option {
+                    color: black;
+                }
+                
+                svg {
+                    margin-right: $s-size;
+                }
+            }
+        }
+
+        // Buttons
+        ._todo_add_btn {
+            color: $green;
+            border: 2px solid $green;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin: 0 $s-size;
+        }
+
+        ._todo_cancel_btn {
+            color: $red;
+            border: 2px solid $red;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin: 0 $s-size;
+        }
+
+        ._check_icon, ._times_icon  {
+            margin-right: $s-size;
+        }
+    }
+} 

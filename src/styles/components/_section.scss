@@ -1,0 +1,31 @@
+// Separate sections (Important, Homework, Notes, Finished)
+#section_body {
+    grid-area: section;
+    background: $red;
+    color: $white;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 4fr 1fr;
+
+    // Section heading
+    ._section_title {
+        justify-self: start;
+        margin-left: $m-size;
+        text-transform: uppercase;
+
+        // Icon
+        ._star_icon {
+            margin-right: $s-size;
+        }
+    }
+
+    // Section button
+    ._section_button {
+        border: none;
+        background: transparent;
+        color: $white;
+        font-size: $xl-size;
+        font-weight: bold;
+    }
+}

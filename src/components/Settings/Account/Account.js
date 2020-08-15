@@ -5,6 +5,8 @@ import Username from './Username'
 import UserForm from '../../UserForm'
 // Logic Components
 import AppContext from '../../../context/app-context'
+// Fontawesome Components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Account = () => {
     const { dispatch } = useContext(AppContext)
@@ -12,23 +14,36 @@ const Account = () => {
     const [ programBtn, setProgramBtn ] = useState(false)
 
     return (
-        <div>
-            <div>
+        <>
+            <div className="_settings_username_body">
                 {/* Change username section toggle */}
-                <button onClick={ () => setUsernameBtn(!usernameBtn) }>Change username</button>
+                <button onClick={ () => setUsernameBtn(!usernameBtn) }>
+                    <FontAwesomeIcon icon={['fas', 'edit']} className="_edit_icon" />
+                    Change username
+                </button>
                 {
                     usernameBtn && <Username setUsernameBtn={setUsernameBtn}/>
                 }
             </div>
-            <div>
+
+            <div className="_settings_program_body">
                 {/* Change program section toggle */}
-                <button onClick={ () => setProgramBtn(!programBtn) }>Change program</button>
+                <button onClick={ () => setProgramBtn(!programBtn) }>
+                    <FontAwesomeIcon icon={['fas', 'exchange-alt']} className="_exchange_alt_icon" />
+                    Change program
+                </button>
                 {
                     programBtn && <UserForm setProgramBtn={setProgramBtn}/>
                 }
             </div>
-            <button onClick={ () => dispatch({ type: 'DELETE_FINISHED'}) }>Delete finished tasks</button>
-        </div>
+            
+            <div className="_settings_finished_body">
+                <button onClick={ () => dispatch({ type: 'DELETE_FINISHED'}) }>
+                    <FontAwesomeIcon icon={['fas', 'trash-alt']} className="_trash_alt_icon" />
+                    Delete finished tasks
+                </button>
+            </div>
+        </>
     )
 }
 

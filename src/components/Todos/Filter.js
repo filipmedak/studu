@@ -12,7 +12,7 @@ const Filter = () => {
     const uniqueUsedClasses = [...new Set(usedClasses)]
 
     return (
-        <div>
+        <div className="_filter_form">
             <select 
                 value={filterClass}
                 onChange={ (e) => { setFilterClass(e.target.value) }}

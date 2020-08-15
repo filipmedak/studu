@@ -1,0 +1,13 @@
+._settings_head {
+    // Settings section main head element
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    font-size: 3rem;
+    margin: -$s-size 0 $s-size 0;
+    font-weight: bold;
+
+    svg {
+        margin-left: $s-size;
+    }
+}

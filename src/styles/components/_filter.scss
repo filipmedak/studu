@@ -1,0 +1,23 @@
+// Filter select
+#filter_body{
+    grid-area: filter;
+    background: $red;
+
+    ._filter_form{
+        font-size: 2rem;
+        margin-left: $m-size;
+
+        select{
+            border: none;
+            border-bottom: 1px solid $white;
+            background: transparent;
+            color: $white;
+            padding: 1rem $m-size;
+            max-width: 90%;
+        }
+
+        option{
+            color: black;
+        }        
+    }
+}

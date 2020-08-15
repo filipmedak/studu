@@ -27,7 +27,7 @@ const TodoList = ({ url }) => {
         ?   filteredTodos.map((todo) => {
                 return <Todo key={todo.id} todo={todo} url={url}/>
             })
-        :   <p>No todos. Please add one.</p>
+        :   <p className="_empty_todos">No todos. Please add one.</p>
     )
 }
 

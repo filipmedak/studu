@@ -16,12 +16,12 @@ const Username = ({ setUsernameBtn }) => {
     }
  
     return (
-        <div>
+        <>
             <form onSubmit={changeUsername}>
                 <input value={name} onChange={ (e) => setName(e.target.value) }/>
                 <button>Change.</button>
             </form>
-        </div>
+        </>
     )
 }
 

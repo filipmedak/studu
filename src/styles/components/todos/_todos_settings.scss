@@ -1,0 +1,65 @@
+#todos_body {
+    
+    // Settings
+    ._todo_settings {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0.5rem auto $xl-size auto;
+
+        // Icons
+        ._check_icon, ._edit_icon, ._trash_alt_icon, ._todo_finish_btn {
+            margin-right: 1rem;
+        }
+
+        // Buttons
+        ._todo_finish_btn, ._todo_edit_btn, ._todo_remove_btn {
+            padding: 0.5rem $m-size;
+            border-radius: 0.5rem;
+        }
+
+        ._todo_finish_btn {
+            color: $green;
+            border: 2px solid $green;
+        }
+
+        ._todo_edit_btn {
+            color: $gray;
+            border: 2px solid $gray;
+        }
+        
+        ._todo_remove_btn {
+            color: $red;
+            border: 2px solid $red;
+        }
+    }
+
+    // Toggle (finish/return)
+    ._todo_toggle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: $s-size;
+        margin: auto $m-size;
+        column-gap: $m-size;
+
+        // Icons
+        ._undo_alt_icon, ._trash_alt_icon {
+            margin-right: 1rem;
+        }
+
+        // Buttons
+        ._todo_return_btn, ._todo_delete_btn {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        ._todo_return_btn {
+            color: $green;
+            border: 2px solid $green;
+        }
+
+        ._todo_delete_btn {
+            color: $red;
+            border: 2px solid $red;
+        }
+    }
+}

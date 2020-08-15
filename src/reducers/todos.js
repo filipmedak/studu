@@ -14,16 +14,18 @@ const todosReducer = (state, action) => {
         // Toggle todos between finished and unfinished state 
         case 'TOGGLE_TODO':
             return state.map(
-                (todo) => action.id === todo.id && {...todo, finished: !action.finished}
-            )
-        case 'EDIT_TODO':
-            return state.map(
                 (todo) => 
-                    action.id === todo.id 
-                    && { id: action.id, title: action.title, type: action.todoType, course: action.course, date: action.date, finished: action.finished, semester: action.semester }
+                    action.id === todo.id ? {...todo, finished: !action.finished} : todo
             )
         case 'DELETE_FINISHED':
             return state.filter((note) => note.finished !== true)
+        case 'EDIT_TODO':
+        return state.map(
+            (todo) => 
+                action.id === todo.id 
+                    ? { id: action.id, title: action.title, type: action.todoType, course: action.course, date: action.date, finished: action.finished, semester: action.semester } 
+                    : todo
+            )
         default:
             return state
     }

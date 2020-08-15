@@ -48,7 +48,7 @@ const AddRemoveClass = ({ addClassBtn, setAddClassBtn, removeClassBtn, setRemove
     }
 
     return (
-        <div>
+        <>
             <form onSubmit={addClass}>
                 {/* user Semester select (only active when adding class) */} 
                 {
@@ -76,9 +76,9 @@ const AddRemoveClass = ({ addClassBtn, setAddClassBtn, removeClassBtn, setRemove
                         (semester || !addClassBtn) && MapSelect(classes)
                     }
                 </select>
-                <button>{addClassBtn ? 'Add' : 'Delete'}</button>
+                <button className="_settings_add_remove_class_button">{addClassBtn ? 'Add' : 'Delete'}</button>
             </form>
-        </div>
+        </>
     )
 }
 

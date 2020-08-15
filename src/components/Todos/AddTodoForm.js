@@ -4,8 +4,10 @@ import React, { useContext, useState } from 'react'
 import AppContext from '../../context/app-context'
 import MapSelect from '../../hooks/MapSelect'
 import { v4 as uuidv4 } from 'uuid'
+// FontAwesome Components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const AddTodoForm = ({ todo }) => {
+const AddTodoForm = ({ todo, settingsBtn, changeSettingsBtn }) => {
     const { dispatch, addBtn, toggleAddBtn, editBtn, toggleEditBtn, classes } = useContext(AppContext)
     // Local variables for seperate todo information -- Variables are filled if todo exists (editing todos)
     const [id, setId] = useState( todo ? todo.id : uuidv4())
@@ -45,43 +47,73 @@ const AddTodoForm = ({ todo }) => {
     }
 
     return (
-        <div>
+        <div className="_todos_add">
             {/* On input values change, local variables are updated */}
             <form onSubmit={addTodo}>
                 {/* todo Title input */}
-                <input value={title} onChange={ (e) => setTitle(e.target.value) } />
+                <input 
+                    value={title} 
+                    placeholder="Create a description.."
+                    onChange={ (e) => setTitle(e.target.value) } 
+                />
                 
                 {/* todo Type input */}
-                <select value={todoType} onChange={ (e) => setType(e.target.value) }>
-                    <option value="" hidden>Select Task Type</option>
-                    <option value="important">Important</option>
-                    <option value="homework">Homework</option>
-                    <option value="notes">Notes</option>
-                </select>
-
+                <div className="_todo_grid_column">
+                    <FontAwesomeIcon icon={['far', 'bookmark']} className="_bookmark_icon" />
+                    <select 
+                        value={todoType} 
+                        className={todoType ? "_spec_form_item" : "_spec_form_item _empty_item"}
+                        onChange={ (e) => setType(e.target.value) }
+                    >
+                        <option value="" hidden>Select Task Type</option>
+                        <option value="important">Important</option>
+                        <option value="homework">Homework</option>
+                        <option value="notes">Notes</option>
+                    </select>
+                </div>
+                
                 {/* todo Class input */}
-                <select value={course} onChange={ (e) => setCourse(e.target.value) }>
-                    <option value="" hidden>Select Class</option>
-                    { MapSelect(classes) }
-                </select>
+                <div className="_todo_grid_column">
+                    <FontAwesomeIcon icon="question" className="_question_icon" />
+                    <select 
+                        value={course} 
+                        className={course ? "_spec_form_item" : "_spec_form_item _empty_item"}
+                        onChange={ (e) => setCourse(e.target.value) }
+                    >
+                        <option value="" hidden>Select Class</option>
+                        { MapSelect(classes) }
+                    </select>
+                </div>
 
                 {/* todo Date input */}
-                <input 
-                    type="date" 
-                    value={date} 
-                    onChange={ (e) => setDate(e.target.value) }
-                /> 
+                <div className="_todo_grid_column">
+                    <FontAwesomeIcon icon={['far', 'calendar-alt']} className="_calendar_alt_icon" />
+                    <input 
+                        type="date" 
+                        value={date} 
+                        className={date ? "_spec_form_item" : "_spec_form_item _empty_item"}
+                        onChange={ (e) => setDate(e.target.value) }
+                    /> 
+                </div>
 
                 {/* Submit button is disabled if title, type & course aren't selected */}
                 <button
-                    disabled={ title.length < 1 || course.length < 1 || todoType.length < 1 } >
-                    Add Todo
+                    className="_todo_add_btn"
+                    disabled={ title.length < 1 || course.length < 1 || todoType.length < 1 } 
+                >
+                    <FontAwesomeIcon icon="check" className="_check_icon" />
+                    { addBtn ? "Add Todo" : "Update Todo" }
                 </button>
 
                 {/* Logic that removes form component (either edit or add) */}
                 <button 
                     type="button" 
-                    onClick={ () => { addBtn ? toggleAddBtn(!addBtn) : toggleEditBtn(!editBtn)} }>
+                    className="_todo_cancel_btn"
+                    onClick={ () => { 
+                        addBtn ? toggleAddBtn(!addBtn) : toggleEditBtn(!editBtn)
+                        settingsBtn && changeSettingsBtn(false)
+                }}>
+                    <FontAwesomeIcon icon="times" className="_times_icon" />
                     Cancel
                 </button>
             </form>

@@ -1,0 +1,35 @@
+// Header (navigation)
+#header_body {
+    grid-area: header;
+    background: $lightest-black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center; 
+    z-index: 1000;
+
+    // Icons sizing
+    ._star_icon, ._book_icon, ._sticky_note_icon, ._folder_minus_icon {
+        font-size: $l-size;
+    }
+
+    // Active icon 
+    .is-active {
+        display: inline-block;
+        position: relative;
+        color: red;
+    }
+
+    // Underline border on active
+    .is-active:after {
+        position: absolute;
+        content: '';
+        width: 50px;
+        // border-bottom: 5px solid red;
+        width: 70%;
+        transform: translateX(-50%);
+        top: 100%;
+        left: 50%;
+        overflow: hidden;
+    }
+}

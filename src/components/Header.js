@@ -1,35 +1,33 @@
+// React Components
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+// FontAwesome Components
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = () => {
     return (
-        <div>
-            <p>Studu</p>
+        <div id="header_body">
             {/* React-Router linking || CSS class on active link */}
             <NavLink 
-                to="/" activeClassName="is-active" 
+                to="/important" 
+                activeClassName="is-active" 
                 exact={true}>
-                Important
+                <FontAwesomeIcon icon="star" className="_star_icon" />
             </NavLink> 
             <NavLink 
                 to="/homework" 
                 activeClassName="is-active">
-                Homework
+                <FontAwesomeIcon icon="book" className="_book_icon" />
             </NavLink>
             <NavLink 
                 to="/notes" 
                 activeClassName="is-active">
-                Notes
+                <FontAwesomeIcon icon="sticky-note" className="_sticky_note_icon" />
             </NavLink>
             <NavLink 
                 to="/finished" 
                 activeClassName="is-active">
-                Finished
-            </NavLink>
-            <NavLink 
-                to="/settings" 
-                activeClassName="is-active">
-                Settings
+                <FontAwesomeIcon icon="folder-minus" className="_folder_minus_icon" />
             </NavLink>
         </div>
     )

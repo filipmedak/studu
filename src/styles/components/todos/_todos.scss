@@ -1,0 +1,41 @@
+@import './todos_settings';
+@import './todos_add';
+
+// Todo list
+#todos_body {
+    grid-area: todos;
+    background: $white;
+    margin: $s-size;
+
+    // Empty todo list
+    ._empty_todos {
+        text-align: center;
+        margin-top: $xl-size;
+        font-weight: bold;
+    }
+
+    // Single todo
+    ._todo_body {
+        margin: $s-size auto $l-size $s-size;
+
+        // Lighter text
+        ._todo_details {
+            color: $silver;
+        }
+
+        // Icons
+        ._circle_icon {
+            margin-right: $s-size;
+        }
+
+        ._bookmark_icon, ._calendar_alt_icon {
+            margin: 0 $s-size 0 $m-size;
+        }
+    }
+
+    // Buttons reset 
+    button {
+        background: transparent;
+        border: none;
+    }
+}
