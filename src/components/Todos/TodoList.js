@@ -6,7 +6,7 @@ import Todo from './Todo'
 import AppContext from '../../context/app-context'
 
 const TodoList = ({ url }) => {
-    const { todos, filterClass } = useContext(AppContext)
+    const { todos, filterClass, addBtn } = useContext(AppContext)
 
     // Filtering logic that seperates ongoing/finished todos & renders depending on current url and class if it's set
     const filteredTodos = todos.filter((todo) => {
@@ -27,7 +27,7 @@ const TodoList = ({ url }) => {
         ?   filteredTodos.map((todo) => {
                 return <Todo key={todo.id} todo={todo} url={url}/>
             })
-        :   <p className="_empty_todos">No todos. Please add one.</p>
+        :   !addBtn && <p className="_empty_todos">There are no tasks left.</p>
     )
 }
 

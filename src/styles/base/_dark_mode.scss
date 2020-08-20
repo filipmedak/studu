@@ -1,0 +1,69 @@
+// Dark mode
+.dark_mode {
+    // Core background
+    background: $lightest-black!important;
+    color: $white;
+
+    // Section background darken
+    .important {
+        background: darken($red, 10%)!important;
+    }
+    
+    .homework {
+        background: darken($orange, 10%)!important;
+    }
+    
+    .notes {
+        background: darken($pink, 10%)!important;
+    }
+    
+    .finished {
+        background: darken($gray, 10%)!important;
+    }
+
+    // Todos section
+    #todos_body {
+
+        // Add todo buttons
+        ._todo_add_btn, ._todo_cancel_btn {
+            background: $white;
+        }
+
+        // Todo details (class, date)
+        ._todo_body {
+            ._todo_details {
+                color: $white;
+            }
+        }
+
+        // Todo settings buttons
+        ._todo_settings, ._todo_toggle {
+            button {
+                background: $white;
+            }
+        }
+    }
+
+    // Settings section
+    #settings_body {
+        // Title
+        p{
+            color: $white;
+        }
+
+        // Main sections
+        button {
+            color: $white;
+        }
+
+        // Sub sections
+        ._settings_theme_main_btn {
+            color: $off-white;
+        }
+
+        // Sub sections button
+        ._settings_theme_secondary_btn, ._settings_add_remove_class_button {
+            background: $white;
+        }
+    }
+}

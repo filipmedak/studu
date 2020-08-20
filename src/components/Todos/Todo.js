@@ -17,20 +17,27 @@ const Todo = ({ todo, url }) => {
         <>
             {/* Logic for hiding todos that are being edited */}  
             { !editBtn &&
-                <div className="_todo_body" onClick={ e => changeSettingsBtn(!settingsBtn) }>
+                <div 
+                    className="_todo_body" 
+                    onClick={ e => changeSettingsBtn(!settingsBtn) }
+                >
                     <h3>
-                        <FontAwesomeIcon icon={['far', 'circle']} className="_circle_icon"/>
+                        {
+                            settingsBtn
+                            ? <FontAwesomeIcon icon={['fas', 'circle']} className="_circle_icon"/>
+                            : <FontAwesomeIcon icon={['far', 'circle']} className="_circle_icon"/>
+                        }
                         {todo.title}
                     </h3>
 
-                    <p className="_todo_details">
-                        <FontAwesomeIcon icon={['far', 'bookmark']} className="_bookmark_icon" />
-                        {todo.course}
-                    </p>
-                    
-                    <p className="_todo_details">
+                    <p className="_todo_details _todo_date">
                         { todo.date && <FontAwesomeIcon icon={['far', 'calendar-alt']} className="_calendar_alt_icon" /> }
                         {todo.date}
+                    </p>
+
+                    <p className="_todo_details _todo_class">
+                        <FontAwesomeIcon icon={['far', 'bookmark']} className="_bookmark_icon" />
+                        {todo.course}
                     </p>
                 </div>
             }

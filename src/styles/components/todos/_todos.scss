@@ -4,23 +4,28 @@
 // Todo list
 #todos_body {
     grid-area: todos;
-    background: $white;
-    margin: $s-size;
+    padding: $s-size;
+    overflow: auto;
 
     // Empty todo list
     ._empty_todos {
         text-align: center;
         margin-top: $xl-size;
         font-weight: bold;
+        font-size: 2rem;
     }
 
     // Single todo
     ._todo_body {
-        margin: $s-size auto $l-size $s-size;
+        margin: $l-size $l-size 0 $s-size;
+        padding-top: $m-size;
+        border-top: 1px solid $silver;
+        overflow: auto;
 
         // Lighter text
         ._todo_details {
             color: $silver;
+            font-style: italic;
         }
 
         // Icons
@@ -33,9 +38,55 @@
         }
     }
 
+    // First todo custom css
+    ._todo_body:first-of-type{
+        border-top: none;
+        padding-top: 0;
+    }
+
     // Buttons reset 
     button {
         background: transparent;
         border: none;
+    }
+}
+
+// Desktop version
+@media only screen and (min-width: $desktop-breakpoint) {
+    #todos_body {
+        padding: $l-size 0 0 $xl-size;
+
+        // Single todo
+        ._todo_body {
+            padding: $m-size 0 $m-size 0;
+            margin: 0 $xl-size auto $s-size;
+            display: grid;
+            grid-template-columns: 0.5fr 1fr 1fr;
+
+            h3 {
+                grid-column: 1/4;
+                grid-row: 1;
+
+                ._circle_icon {
+                    margin-right: 2.5rem;
+                }
+            }
+
+            // Lighter text
+            ._todo_details {
+                grid-row: 2;
+                padding-left: $l-size;
+            }
+
+            ._todo_class{
+                grid-column: 2/4;
+            }
+        }
+
+        // First todo custom css
+        ._todo_body:first-of-type{
+            border-top: none;
+            padding-top: 0;
+        }
     }
 }

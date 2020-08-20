@@ -1,33 +1,72 @@
 // React Components
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+// Logic Components
+import AppContext from '../context/app-context'
 // FontAwesome Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// Images 
+import logo from '../img/algebra_white_logo.png'
 
 const Header = () => {
+    const { addBtn, toggleAddBtn } = useContext(AppContext)
+    // Toggle between far and fas logo types 
+    let [logoType, setLogoType] = useState({ importantLogoType: 'far', homeworkLogoType: 'far', notesLogoType: 'far', finishedLogoType: 'far' })
+    
     return (
         <div id="header_body">
+            {/* Desktop only logo */}
+            <img src={logo} className="_algebra_white_logo" alt="Logo" />
             {/* React-Router linking || CSS class on active link */}
             <NavLink 
                 to="/important" 
-                activeClassName="is-active" 
-                exact={true}>
-                <FontAwesomeIcon icon="star" className="_star_icon" />
+                className="_header_item"
+                activeClassName="is-active-important"
+                exact={true}
+                onClick={() => {
+                    setLogoType({importantLogoType: 'fas', homeworkLogoType: 'far', notesLogoType: 'far', finishedLogoType: 'far'})
+                }}
+            >
+                <FontAwesomeIcon icon={[logoType.importantLogoType, 'star']} className="_star_icon" />
+                <span>Important</span>
             </NavLink> 
+
             <NavLink 
                 to="/homework" 
-                activeClassName="is-active">
-                <FontAwesomeIcon icon="book" className="_book_icon" />
+                className="_header_item"
+                activeClassName="is-active-homework"
+                onClick={() => {
+                    setLogoType({importantLogoType: 'far', homeworkLogoType: 'fas', notesLogoType: 'far', finishedLogoType: 'far'})
+                }}
+            >
+                <FontAwesomeIcon icon={[logoType.homeworkLogoType, 'clipboard']} className="_clipboard_icon" />
+                <span>Homework</span>
             </NavLink>
+
+            <FontAwesomeIcon onClick={() => {toggleAddBtn(!addBtn)}} icon={['fas', 'plus-square']} className="_plus_square_icon" />
+
             <NavLink 
                 to="/notes" 
-                activeClassName="is-active">
-                <FontAwesomeIcon icon="sticky-note" className="_sticky_note_icon" />
+                className="_header_item"
+                activeClassName="is-active-notes"
+                onClick={() => {
+                    setLogoType({importantLogoType: 'far', homeworkLogoType: 'far', notesLogoType: 'fas', finishedLogoType: 'far'})
+                }}
+            >
+                <FontAwesomeIcon icon={[logoType.notesLogoType, 'sticky-note']} className="_sticky_note_icon" />
+                <span>Notes</span>
             </NavLink>
+
             <NavLink 
                 to="/finished" 
-                activeClassName="is-active">
-                <FontAwesomeIcon icon="folder-minus" className="_folder_minus_icon" />
+                className="_header_item"
+                activeClassName="is-active-finished"
+                onClick={() => {
+                    setLogoType({importantLogoType: 'far', homeworkLogoType: 'far', notesLogoType: 'far', finishedLogoType: 'fas'})
+                }}
+            >
+                <FontAwesomeIcon icon={[logoType.finishedLogoType, 'calendar-check']} className="_calendar_check_icon" />
+                <span>Finished</span>
             </NavLink>
         </div>
     )

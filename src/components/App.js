@@ -17,8 +17,8 @@ import data from '../json/data.json'
 import '../styles/App.scss'
 // Font Awesome Logos
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faEdit, faCheck, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight, faLongArrowAltLeft, faExchangeAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons'
-import { faCircle, faCalendarAlt, faBookmark } from '@fortawesome/free-regular-svg-icons'
+import { faCircle, faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faEdit, faCheck, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight, faLongArrowAltLeft, faExchangeAlt, faPlusSquare, faCalendarCheck, faClipboard, faCircleNotch, faAdjust } from '@fortawesome/free-solid-svg-icons'
+import { faCircle as farFaCircle, faCalendarAlt, faBookmark, faStar as farFaStar, faStickyNote as farFaStickyNote, faClipboard as farFaClipboard, faCalendarCheck as farFaCalendarCheck } from '@fortawesome/free-regular-svg-icons'
 
 const App = () => {
     // Global variables & functions spread throught components using Context Hook
@@ -27,11 +27,14 @@ const App = () => {
     const [ filterClass, setFilterClass ] = useState('')
     const [ editBtn, toggleEditBtn ] = useState(false)
     const [ addBtn, toggleAddBtn ] = useState(false)
-    const classes = user.id && user.classes
     const isUser = user.id ? true : false
+    const classes = user.id && user.classes
+    const isMobile = window.innerWidth < 992
+    // Dark Mode Setup
+    const [ darkMode, toggleDarkMode ] = useState(isUser ? user.darkMode : false)
+    user.darkMode ? document.querySelector('#root').classList.add('dark_mode') : document.querySelector('#root').classList.remove('dark_mode')
     // Font Awesome Library
-    library.add(faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faBookmark, faCalendarAlt, faCircle, faCheck, faEdit, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight,  faLongArrowAltLeft, faExchangeAlt, faPlusSquare )
-
+    library.add(faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faBookmark, faCalendarAlt, farFaCircle, faCircle, faCheck, faEdit, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight,  faLongArrowAltLeft, faExchangeAlt, faPlusSquare, farFaStar, farFaStickyNote, farFaClipboard, farFaCalendarCheck, faCalendarCheck, faClipboard, faCircleNotch, faAdjust )
     // Grab array of objects from localStorage and save it in todo global variable - if exist render
     // Hook that runs only once on page load
     useEffect(() => {
@@ -54,27 +57,35 @@ const App = () => {
     }, [ user ])
 
     return (
-        <AppContext.Provider value={{ todos, dispatch, user, userDispatch, data, classes, filterClass, setFilterClass, editBtn, toggleEditBtn, addBtn, toggleAddBtn, isUser}}>
+        <AppContext.Provider value={{ todos, dispatch, user, userDispatch, data, classes, filterClass, setFilterClass, editBtn, toggleEditBtn, addBtn, toggleAddBtn, isUser, darkMode, toggleDarkMode, isMobile }}>
             <BrowserRouter>
+                {/* Init user setup */}
                 {
-                   !user.id && <UserForm />
+                    !isUser && <UserForm />
                 }
-                <Header />
-                <Switch>
-                    {/* Routing logic */}
-                    <Route exact path="/">
-                        <Redirect to="/important" />
-                    </Route>
-                    <Route 
-                        path={['/important', '/homework', '/notes', '/finished']} 
-                        component={Section} 
-                    />
-                    <Route 
-                        path="/settings" 
-                        component={Settings} 
-                    />
-                </Switch>
-                <Footer />   
+                {/* App won't render if user isn't setup */}
+                {
+                    isUser &&
+                    <>
+                        <Header/>
+                        <Switch>
+                            {/* Re-Routing logic */}
+                            <Route exact path="/">
+                                <Redirect to="/important" />
+                            </Route>
+                            {/* Routing logic */}
+                            <Route 
+                                path={['/important', '/homework', '/notes', '/finished']} 
+                                component={Section} 
+                            />
+                            <Route 
+                                path="/settings" 
+                                component={Settings} 
+                            />
+                        </Switch>
+                        <Footer />   
+                    </>
+                }
             </BrowserRouter>
         </AppContext.Provider>
     )

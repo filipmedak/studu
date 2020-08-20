@@ -1,13 +1,27 @@
-._settings_head {
+// Mobile version
+#settings_body{
     // Settings section main head element
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items: center;
-    font-size: 3rem;
-    margin: -$s-size 0 $s-size 0;
-    font-weight: bold;
+    ._settings_head {
+        display: grid;
+        grid-template-columns: 1fr;
+        font-size: 3rem;
+        margin: -$s-size 0 $s-size 0;
+        font-weight: bold;
+        color: black;
+    
+        p {
+            justify-self: center;
+        }
+    }
+}
 
-    svg {
-        margin-left: $s-size;
+
+// Desktop version
+@media only screen and (min-width: $desktop-breakpoint) {
+    #settings_body {
+        // Settings section main head element
+        ._settings_head {
+            margin-bottom: $xl-size;
+        }
     }
 }

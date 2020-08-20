@@ -15,6 +15,7 @@
         ._todo_finish_btn, ._todo_edit_btn, ._todo_remove_btn {
             padding: 0.5rem $m-size;
             border-radius: 0.5rem;
+            font-weight: bolder;
         }
 
         ._todo_finish_btn {
@@ -50,6 +51,7 @@
         ._todo_return_btn, ._todo_delete_btn {
             padding: 0.5rem;
             border-radius: 0.5rem;
+            font-weight: bolder;
         }
 
         ._todo_return_btn {
@@ -60,6 +62,34 @@
         ._todo_delete_btn {
             color: $red;
             border: 2px solid $red;
+        }
+    }
+}
+
+// Desktop version
+@media only screen and (min-width: $desktop-breakpoint) {
+    // Settings
+    ._todo_settings {
+        display: grid!important;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: $l-size;
+        padding-left: $s-size;
+        padding-right: $xl-size;
+
+        // Buttons
+        ._todo_finish_btn, ._todo_edit_btn, ._todo_remove_btn {
+            padding: 0.75rem $m-size!important;
+        }
+    }
+
+    // Toggle (finish/return)
+    ._todo_toggle {
+        column-gap: $xl-size!important;
+        padding-right: $xl-size;
+
+        // Buttons
+        ._todo_return_btn, ._todo_delete_btn {
+            padding: 0.75rem!important;
         }
     }
 }

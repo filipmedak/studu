@@ -19,7 +19,7 @@ const Username = ({ setUsernameBtn }) => {
         <>
             <form onSubmit={changeUsername}>
                 <input value={name} onChange={ (e) => setName(e.target.value) }/>
-                <button>Change.</button>
+                <button className="_settings_theme_secondary_btn">Change.</button>
             </form>
         </>
     )

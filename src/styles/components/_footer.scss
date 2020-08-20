@@ -20,4 +20,38 @@
         font-size: $l-size;
         justify-self: end;
     }
+
+    // Settings text
+    ._footer_settings_text {
+        display: none;
+    }
+}
+
+// Desktop version
+@media only screen and (min-width: $desktop-breakpoint) {
+    #footer_body{
+        background: darken($lightest-black, 3%);
+        grid-template-columns: 1fr;
+        justify-items: start;
+
+        // Mobile only logo
+        ._algebra_white_logo {
+            display: none;
+        }
+
+        ._cog_icon {
+            margin-left: $xl-size;
+            color: $off-white;
+            font-size: 2rem;
+        }
+
+        // Settings text
+        ._footer_settings_text {
+            display: inline-block;
+            color: $off-white;
+            text-justify: inter-word;
+            margin-left: $m-size;
+            font-size: 2rem;
+        }
+    }
 }

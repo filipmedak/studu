@@ -1,7 +1,10 @@
 // Filter select
 #filter_body{
     grid-area: filter;
-    background: $red;
+
+    ._filter_form_dekstop {
+        display: none;
+    }
 
     ._filter_form{
         font-size: 2rem;
@@ -12,12 +15,59 @@
             border-bottom: 1px solid $white;
             background: transparent;
             color: $white;
-            padding: 1rem $m-size;
+            padding: 1rem 0;
             max-width: 90%;
+            font-style: italic;
         }
 
         option{
             color: black;
         }        
+    }
+}
+
+// Desktop version
+@media only screen and (min-width: $desktop-breakpoint) {
+    #filter_body{
+        background: $light-black!important;
+        color: $off-white;
+
+        // Hide mobile version filter
+        ._filter_form_mobile {
+            display: none;
+        }
+
+        // Show desktop version filter
+        ._filter_form_dekstop {
+            display: block;
+            margin-left: $l-size;
+
+            // Main title
+            ._filter_select_title {
+               font-size: 2rem; 
+               padding: $m-size 0;
+
+               svg {
+                   font-size: 2.75rem;
+               }
+            }
+
+            // Options and logo shared margins
+            ._filter_all_classes_option, ._filter_class_option {
+                margin: 0 0 2.5rem $s-size;
+                font-size: 1.75rem;
+                cursor: pointer;
+            }
+            
+            // Class option
+            ._filter_class_option {
+                font-style: italic;
+            }
+
+            // Option icons
+            svg {
+                margin-right: $s-size;
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ html{
 
 body {
     font-family: Helvetica, Arial, sans-serif;
+    font-family: $main-font;
     font-size: $m-size;
 }
 
@@ -21,13 +22,14 @@ select {
     display: grid;
     width: 100vw; 
     height: 100vh;
-    grid-template-rows: 7.5% 7.5% 7.5% 70% 7.5%;
+    grid-template-rows: 8% 7.5% 7.5% 69% 8%;
     grid-template-areas: 
         "footer"
         "section"
         "filter"
         "todos"
         "header";
+    // overflow: hidden;
 }
 
 // Base Custom Styling
@@ -47,3 +49,36 @@ button:disabled {
 .is-active{
     font-weight: bold;
 }
+
+// Background change on section change
+.important {
+    background: $red!important;
+}
+
+.homework {
+    background: $orange!important;
+}
+
+.notes {
+    background: $pink!important;
+}
+
+.finished {
+    background: $gray!important;
+}
+
+// Desktop version
+@media only screen and (min-width: $desktop-breakpoint) {
+    // Root React DIV
+    #root {
+        grid-template-areas: 
+        "header section section"
+        "header todos todos"
+        "filter todos todos"
+        "filter todos todos"
+        "footer todos todos";
+        grid-template-columns: 1fr 2.75fr;
+        grid-template-rows: 0.5fr 1fr 1fr 1fr 0.3fr;
+    }
+}
+

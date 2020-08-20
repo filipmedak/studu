@@ -1,5 +1,6 @@
 // React Components
 import React, { useContext, useState } from 'react'
+import { Route, Redirect } from 'react-router-dom'
 // Logic Components
 import AppContext from '../context/app-context'
 import MapSelect from '../hooks/MapSelect'
@@ -11,7 +12,7 @@ import logo from '../img/algebra_white_logo.png'
 // This a form component that is used for inital user setup and program change in settings
 const UserForm = ({ setProgramBtn }) => {
     // Global variables from context hook that will be changed depending on user input
-    let { isUser, userDispatch, data, classes } = useContext(AppContext)  
+    let { isUser, userDispatch, data, classes, darkMode, toggleDarkMode } = useContext(AppContext)  
 
     // Local variables needed for initial user setup
     const [id, setId] = useState(uuidv4())
@@ -50,7 +51,7 @@ const UserForm = ({ setProgramBtn }) => {
                 : 
                 userDispatch({
                     type: 'ADD_USER',
-                    id, name, program, course, lang, semester, classes
+                    id, name, program, course, lang, semester, classes, darkMode
                 })        
         
         setId('')
@@ -59,12 +60,22 @@ const UserForm = ({ setProgramBtn }) => {
         setCourse('')
         setLang('')
         setSemester('')
+        toggleDarkMode(darkMode)
         // Close edit component if on settings page
         isSettings && setProgramBtn(false)
     }
-
+    
     return (
         <div className={!isUser ? "user_setup_form" : "" }>
+
+            {/* Re-Routing logic for init user setup */}
+            {
+                (isSettings && !isUser) && 
+                <Route exact path="/settings">
+                    <Redirect to="/" />
+                </Route>
+            }
+
             <form onSubmit={changeProgram}>
                 {/* Renders only if not on settings page */}
                 {
@@ -78,7 +89,7 @@ const UserForm = ({ setProgramBtn }) => {
                                 placeholder="Please enter your name."
                             />
 
-                            {/* Language input */}
+                            {/* Language input 
                             <select 
                                 value={lang} 
                                 onChange={ (e) => setLang(e.target.value) }
@@ -87,6 +98,7 @@ const UserForm = ({ setProgramBtn }) => {
                                 <option value="English">English</option>
                                 <option value="Croatian">Croatian</option>
                             </select>
+                            */}
                         </>
                 }
                 
@@ -124,7 +136,8 @@ const UserForm = ({ setProgramBtn }) => {
 
                 {/* Submit button */}
                 <button 
-                    disabled={!course}
+                    disabled={!semester}
+                    className="_settings_theme_secondary_btn"
                 >
                     { isSettings ? 'Change User' : 'Create User' }
                 </button>   

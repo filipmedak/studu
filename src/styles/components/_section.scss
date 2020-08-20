@@ -6,26 +6,52 @@
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 1fr;
 
     // Section heading
     ._section_title {
         justify-self: start;
         margin-left: $m-size;
         text-transform: uppercase;
+        font-size: 2.6rem;
 
         // Icon
-        ._star_icon {
+        svg {
             margin-right: $s-size;
+            margin-left: 0.25rem;
         }
     }
 
+    // Section number
+    ._section_number {
+        margin-left: $s-size;
+        color: $off-white;
+        font-weight: lighter;
+    }
+
     // Section button
-    ._section_button {
-        border: none;
-        background: transparent;
-        color: $white;
-        font-size: $xl-size;
-        font-weight: bold;
+    ._plus_square_icon {
+        // Remove on desktop version to show
+        display: none;
+    }
+}
+
+// Desktop version
+@media only screen and (min-width: $desktop-breakpoint) {
+    #section_body {
+        grid-template-columns: 3fr 1fr;
+
+        // Section heading
+        ._section_title {
+            margin-left: $xl-size;
+            font-size: $l-size;
+        }
+
+        // Section button
+        ._plus_square_icon {
+            display: block;
+            font-size: 4rem;
+        }
+
     }
 }

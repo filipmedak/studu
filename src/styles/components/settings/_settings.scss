@@ -3,7 +3,8 @@
 
 #settings_body {
     // Global grid and margin
-    display: grid;
+    grid-area: todos;
+    grid-row: 2/4;
     margin: $l-size;
 
     // Button reset
@@ -20,6 +21,7 @@
         font-size: 2.25rem;
         border-top: 1px solid lighten($silver, 40%);
         padding: $l-size 0;
+        overflow: auto;
 
         // Main columns
         ._settings_main_btn {
@@ -41,21 +43,26 @@
     }
 
     // Sub rows shared settings
-    ._settings_username_body, ._settings_program_body, ._settings_finished_body, ._settings_add_class_body, ._settings_remove_class_body {
+    ._settings_username_body, ._settings_program_body, ._settings_finished_body, ._settings_add_class_body, ._settings_remove_class_body, ._settings_theme_body {
         display: grid;
         margin: $m-size 0 $m-size $s-size;
 
         button {
             justify-self: start;
-            color: $silver;
+            color: $silver!important;
         }
+    }
+
+    // Dark theme toggle icon
+    ._adjust_icon {
+        margin-top: $m-size;
     }
     
     // Onclick shown sub rows details shared settings
-    ._settings_username_body, ._settings_add_class_body, ._settings_program_body, ._settings_remove_class_body {
+    ._settings_username_body, ._settings_add_class_body, ._settings_program_body, ._settings_remove_class_body, ._settings_theme_body {
         form {
             display: grid;
-            margin: $s-size 0;
+            margin: $s-size $l-size $s-size 0;
             row-gap: $s-size;
 
             :first-child {
@@ -92,3 +99,29 @@
         }
     }
 }
+
+// Desktop version
+@media only screen and (min-width: $desktop-breakpoint) {
+    #settings_body {
+        // Global grid and margin
+        margin-top: -6rem;
+
+            // Sub rows shared settings
+            ._settings_username_body, ._settings_program_body, ._settings_finished_body, ._settings_add_class_body, ._settings_remove_class_body, ._settings_theme_body {
+                margin-left: 15rem;
+            }
+
+            // Onclick shown sub rows details shared settings
+            ._settings_username_body, ._settings_add_class_body, ._settings_program_body, ._settings_remove_class_body {
+                form {
+                    width: 70%;
+                }
+            }
+
+            // About section
+            ._settings_about_body {
+                font-size: 2rem;
+                margin: 2rem 0 0 10rem;
+            }
+        }
+    }

@@ -17,7 +17,10 @@ const Account = () => {
         <>
             <div className="_settings_username_body">
                 {/* Change username section toggle */}
-                <button onClick={ () => setUsernameBtn(!usernameBtn) }>
+                <button 
+                    onClick={ () => setUsernameBtn(!usernameBtn) }
+                    className="_settings_theme_main_btn"
+                >
                     <FontAwesomeIcon icon={['fas', 'edit']} className="_edit_icon" />
                     Change username
                 </button>
@@ -28,7 +31,10 @@ const Account = () => {
 
             <div className="_settings_program_body">
                 {/* Change program section toggle */}
-                <button onClick={ () => setProgramBtn(!programBtn) }>
+                <button 
+                    onClick={ () => setProgramBtn(!programBtn) }
+                    className="_settings_theme_main_btn"
+                >
                     <FontAwesomeIcon icon={['fas', 'exchange-alt']} className="_exchange_alt_icon" />
                     Change program
                 </button>
@@ -38,7 +44,12 @@ const Account = () => {
             </div>
             
             <div className="_settings_finished_body">
-                <button onClick={ () => dispatch({ type: 'DELETE_FINISHED'}) }>
+                <button 
+                    onClick={ (e) => {
+                        window.confirm("Are you sure you want to delete all finished tasks?") 
+                        && dispatch({ type: 'DELETE_FINISHED'})} }
+                    className="_settings_theme_main_btn"
+                >
                     <FontAwesomeIcon icon={['fas', 'trash-alt']} className="_trash_alt_icon" />
                     Delete finished tasks
                 </button>

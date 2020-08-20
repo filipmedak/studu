@@ -1,3 +1,9 @@
+// Google Fonts Import
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap');
+
+// Fonts
+$main-font: 'Rubik', sans-serif;
+
 // Colors
 $dark-black: #231F20;
 $light-black: #282828;
@@ -9,9 +15,11 @@ $orange: #E37626;
 $pink: #C42A5A;
 $green: #0B6F3A;
 $white: white;
+$off-white: rgba(255,255,255,0.6); 
 
 // Spacing
 $s-size: 1.2rem;
 $m-size: 1.6rem; 
 $l-size: 3.2rem;
 $xl-size: 4.8rem;
+$desktop-breakpoint: 62rem;

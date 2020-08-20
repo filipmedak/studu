@@ -54,11 +54,12 @@ const AddTodoForm = ({ todo, settingsBtn, changeSettingsBtn }) => {
                 <input 
                     value={title} 
                     placeholder="Create a description.."
+                    className="_todo_add_input"
                     onChange={ (e) => setTitle(e.target.value) } 
                 />
                 
                 {/* todo Type input */}
-                <div className="_todo_grid_column">
+                <div className="_todo_grid_column _todo_type_input">
                     <FontAwesomeIcon icon={['far', 'bookmark']} className="_bookmark_icon" />
                     <select 
                         value={todoType} 
@@ -73,7 +74,7 @@ const AddTodoForm = ({ todo, settingsBtn, changeSettingsBtn }) => {
                 </div>
                 
                 {/* todo Class input */}
-                <div className="_todo_grid_column">
+                <div className="_todo_grid_column _todo_class_input">
                     <FontAwesomeIcon icon="question" className="_question_icon" />
                     <select 
                         value={course} 
@@ -86,7 +87,7 @@ const AddTodoForm = ({ todo, settingsBtn, changeSettingsBtn }) => {
                 </div>
 
                 {/* todo Date input */}
-                <div className="_todo_grid_column">
+                <div className="_todo_grid_column _todo_date_input">
                     <FontAwesomeIcon icon={['far', 'calendar-alt']} className="_calendar_alt_icon" />
                     <input 
                         type="date" 
@@ -102,7 +103,7 @@ const AddTodoForm = ({ todo, settingsBtn, changeSettingsBtn }) => {
                     disabled={ title.length < 1 || course.length < 1 || todoType.length < 1 } 
                 >
                     <FontAwesomeIcon icon="check" className="_check_icon" />
-                    { addBtn ? "Add Todo" : "Update Todo" }
+                    { addBtn ? "Add" : "Update" }
                 </button>
 
                 {/* Logic that removes form component (either edit or add) */}

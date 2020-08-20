@@ -13,10 +13,12 @@ const Classes = () => {
         <>
             {/* Change remove section toggle */}
             <div className="_settings_add_class_body">
-                <button onClick={ () => {
-                    setAddClassBtn(!addClassBtn) 
-                    setRemoveClassBtn(false)
-                }}>
+                <button 
+                    onClick={ () => {
+                        setAddClassBtn(!addClassBtn) 
+                        setRemoveClassBtn(false) }}
+                    className="_settings_theme_main_btn"
+                >
                     <FontAwesomeIcon icon={['fas', 'plus-square']} className="_plus_square_icon"/>
                     Add Class
                 </button>
@@ -26,11 +28,13 @@ const Classes = () => {
             </div>
             
             {/* Change add class section toggle */}
-            <div  className="_settings_remove_class_body">
-                <button onClick={ () => {
-                    setRemoveClassBtn(!removeClassBtn) 
-                    setAddClassBtn(false)
-                }}>
+            <div className="_settings_remove_class_body">
+                <button 
+                    onClick={ () => {
+                        setRemoveClassBtn(!removeClassBtn) 
+                        setAddClassBtn(false)} }
+                    className="_settings_theme_main_btn"
+                >
                     <FontAwesomeIcon icon={['fas', 'trash-alt']} className="_trash_alt_icon"/>
                     Remove Class</button>
                 {

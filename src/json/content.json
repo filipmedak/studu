@@ -1,0 +1,79 @@
+{
+    "English": {
+        "Header": {
+            "header_link_1": "Important",
+            "header_link_2": "Homework",
+            "header_link_3": "Notes",
+            "header_link_4": "Finished"
+        },
+        "Section": {
+            "section_title1": "Important",
+            "section_title2": "Homework",
+            "section_title3": "Notes",
+            "section_title4": "Finished"
+        },
+        "Filter": {
+            "filter_placeholder": "Filter By Class:",
+            "filter_option_all": "All Classes"
+        },
+        "Todo": {
+            "TodoAdd": {
+                "description_text": "Create a description",
+                "type_text": "Select Taks Type",
+                "class_text": "Select Class",
+                "add_button_text": "Add",
+                "update_button_text": "Update",
+                "cancel_button_text": "Cancel"
+            },
+            "TodoSettings": {
+                "finish_btn_text": "Finish",
+                "edit_btn_text": "Edit",
+                "remove_btn_text": "Remove"
+            }
+        },
+        "Settings": {
+            "setting_title": "Settings",
+            "Apperance": {
+                "title": "Apperance",
+                "language": "Language",
+                "theme": "Theme"
+            },
+            "Accout": {
+                "title": "Account",
+                "Username": {
+                    "title": "Change Username",
+                    "button": "Change"
+                },
+                "ChangeProgram": {
+                    "title": "Change Program",
+                    "select1": "Program:",
+                    "select2": "Course:",
+                    "select3": "Semester:",
+                    "button": "Change"
+                },
+                "delete_tasks": "Delete finished tasks"
+            },
+            "Classes": {
+                "title": "Add Class",
+                "select1": "Semester:",
+                "select2": "Class:",
+                "button_add": "Add",
+                "button_remove": "Remove"
+            },
+            "About": {
+                "created": "Created by: Filip Medak",
+                "used_by": "Used by: Algebra University College",
+                "rights": "© 2020 Filip Medak. All rights reserved."
+            }
+        }
+    },
+
+    "Croatian": {
+        "Header" : {
+            "header_link_1": "Bitno",
+            "header_link_2": "Zadaća",
+            "header_link_3": "Note",
+            "header_link_4": "Završeno"
+        }
+    }
+}
