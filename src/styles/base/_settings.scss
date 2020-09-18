@@ -1,8 +1,10 @@
 // Google Fonts Import
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
 // Fonts
-$main-font: 'Rubik', sans-serif;
+$main-font: 'Rubik', Helvetica, sans-serif;
+$secondary-font: 'Questrial', Arial, sans-serif;
 
 // Colors
 $dark-black: #231F20;

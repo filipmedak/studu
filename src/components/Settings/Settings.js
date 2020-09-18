@@ -19,7 +19,7 @@ const Settings = () => {
 
     return (
         <>                
-            <div id="settings_body">
+            <div id="settings_body" className="fade-in">
                 <div className="_settings_head">
                     <p>Settings</p>
                 </div>

@@ -1,6 +1,6 @@
 // React Components
 import React, { useContext, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 // Logic Components
 import AppContext from '../context/app-context'
 // FontAwesome Components
@@ -16,11 +16,13 @@ const Header = () => {
     return (
         <div id="header_body">
             {/* Desktop only logo */}
-            <img src={logo} className="_algebra_white_logo" alt="Logo" />
+            <Link to="/" className="_desktop_only_logo focus-in-expand">
+                <img src={logo} className="_algebra_white_logo" alt="Logo" />
+            </Link>
             {/* React-Router linking || CSS class on active link */}
             <NavLink 
                 to="/important" 
-                className="_header_item"
+                className="_header_item focus-in-expand"
                 activeClassName="is-active-important"
                 exact={true}
                 onClick={() => {
@@ -33,7 +35,7 @@ const Header = () => {
 
             <NavLink 
                 to="/homework" 
-                className="_header_item"
+                className="_header_item focus-in-expand"
                 activeClassName="is-active-homework"
                 onClick={() => {
                     setLogoType({importantLogoType: 'far', homeworkLogoType: 'fas', notesLogoType: 'far', finishedLogoType: 'far'})
@@ -47,7 +49,7 @@ const Header = () => {
 
             <NavLink 
                 to="/notes" 
-                className="_header_item"
+                className="_header_item focus-in-expand"
                 activeClassName="is-active-notes"
                 onClick={() => {
                     setLogoType({importantLogoType: 'far', homeworkLogoType: 'far', notesLogoType: 'fas', finishedLogoType: 'far'})
@@ -59,7 +61,7 @@ const Header = () => {
 
             <NavLink 
                 to="/finished" 
-                className="_header_item"
+                className="_header_item focus-in-expand"
                 activeClassName="is-active-finished"
                 onClick={() => {
                     setLogoType({importantLogoType: 'far', homeworkLogoType: 'far', notesLogoType: 'far', finishedLogoType: 'fas'})

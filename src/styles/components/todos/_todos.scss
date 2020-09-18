@@ -7,25 +7,41 @@
     padding: $s-size;
     overflow: auto;
 
+    // Hide side scroll bar (IE, Edge, Firefox)
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+
     // Empty todo list
     ._empty_todos {
         text-align: center;
         margin-top: $xl-size;
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
 
     // Single todo
     ._todo_body {
-        margin: $l-size $l-size 0 $s-size;
+        margin: $l-size $l-size 0 2rem;
         padding-top: $m-size;
         border-top: 1px solid $silver;
         overflow: auto;
+        transition: 0.4s;
+
+        // Todo description
+        h3 {
+            font-size: 2rem;
+        }
 
         // Lighter text
         ._todo_details {
             color: $silver;
             font-style: italic;
+            white-space: nowrap;
+        }
+
+        // Todo class paragraph
+        ._todo_class {
+            white-space: normal;
         }
 
         // Icons
@@ -44,6 +60,11 @@
         padding-top: 0;
     }
 
+    // Toned down todos on hover
+    ._todo_toned_down {
+        opacity: 0.2;
+    }
+
     // Buttons reset 
     button {
         background: transparent;
@@ -51,11 +72,23 @@
     }
 }
 
+// Hide side scroll bar (Chrome,Safari,Opera)
+#todos_body::-webkit-scrollbar{
+    display: none;
+}
+
 // Desktop version
 @media only screen and (min-width: $desktop-breakpoint) {
     #todos_body {
         padding: $l-size 0 0 $xl-size;
+        margin: $l-size 0 0 $xl-size;
+        max-width: 85%;
 
+        // Empty todo list
+        ._empty_todos {
+            font-size: 3rem;
+        }
+    
         // Single todo
         ._todo_body {
             padding: $m-size 0 $m-size 0;
@@ -66,6 +99,7 @@
             h3 {
                 grid-column: 1/4;
                 grid-row: 1;
+                font-size: 2.25rem;
 
                 ._circle_icon {
                     margin-right: 2.5rem;
@@ -76,10 +110,18 @@
             ._todo_details {
                 grid-row: 2;
                 padding-left: $l-size;
+                font-size: 2rem;
             }
 
-            ._todo_class{
-                grid-column: 2/4;
+            // Todo class paragraph
+            ._todo_class {
+                grid-column: 1;
+                white-space: nowrap;
+            }
+            
+             // Todo date paragraph
+            ._todo_date {
+                grid-column: 2;
             }
         }
 

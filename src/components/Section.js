@@ -28,7 +28,7 @@ const Section = () => {
     return (
         <>
             <div id="section_body" className={url}>
-                <h2 className="_section_title">
+                <h2 className="_section_title tracking-in-expand">
                     {/* Dynamic logo rendering depending on active section */}
                     {(() => {
     
@@ -39,15 +39,15 @@ const Section = () => {
                             )
                         case 'homework':
                             return (
-                                <><FontAwesomeIcon icon={['fas', 'clipboard']} className="_star_icon" /></>
+                                <><FontAwesomeIcon icon={['fas', 'clipboard']} className="_clipboard_icon" /></>
                             )
                         case 'notes':
                             return (
-                                <><FontAwesomeIcon icon={['fas', 'sticky-note']} className="_star_icon" /></>
+                                <><FontAwesomeIcon icon={['fas', 'sticky-note']} className="_sticky_note_icon" /></>
                             )
                         case 'finished':
                             return (
-                                <><FontAwesomeIcon icon={['fas', 'calendar-check']} className="_star_icon" /></>
+                                <><FontAwesomeIcon icon={['fas', 'calendar-check']} className="_calendar_icon" /></>
                             )
                         default:
                             return (
@@ -60,7 +60,7 @@ const Section = () => {
                     <span className="_section_number">({num})</span>
                 </h2>
                 {/* Add Todo toggle logic & Conditional rendering */}
-                <FontAwesomeIcon onClick={ () => { toggleAddBtn(!addBtn) }} icon={['fas', 'plus-square']} className="_plus_square_icon" />
+                <FontAwesomeIcon onClick={ () => { toggleAddBtn(!addBtn) }} icon={['fas', 'plus-square']} className="_plus_square_icon scale-in-ver-center" />
             </div>
 
             <div id="filter_body" className={url}>

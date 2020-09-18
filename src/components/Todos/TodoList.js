@@ -27,7 +27,7 @@ const TodoList = ({ url }) => {
         ?   filteredTodos.map((todo) => {
                 return <Todo key={todo.id} todo={todo} url={url}/>
             })
-        :   !addBtn && <p className="_empty_todos">There are no tasks left.</p>
+        :   !addBtn && <p className="_empty_todos fade-in">There are no tasks left.</p>
     )
 }
 

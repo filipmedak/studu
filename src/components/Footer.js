@@ -14,9 +14,13 @@ const Footer = () => {
     return (
         <div id="footer_body">
             {/* Mobile only logo */}
-            <img src={logo} className="_algebra_white_logo" alt="Logo" />
+            <Link to="/" className="_mobile_only_logo focus-in-expand">
+                <img src={logo} className="_algebra_white_logo" alt="Logo" />
+            </Link>
             <Link 
-                to="/settings">
+                to="/settings"
+                className="focus-in-expand"
+            >
                 {
                     /* Logo depending on app version (mobile/desktop) */
                     isMobile 

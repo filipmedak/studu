@@ -7,12 +7,16 @@
     align-items: center;
     grid-template-columns: 4fr 1fr;
     z-index: 1000;
+    font-family: $secondary-font;
 
     // Footer logo
-    ._algebra_white_logo{
-        max-height: $l-size;
+    ._mobile_only_logo {
         justify-self: start;
         margin-left: $m-size;
+
+        ._algebra_white_logo{
+            max-height: $l-size;
+        }
     }
 
     // Settings icon
@@ -33,16 +37,17 @@
         background: darken($lightest-black, 3%);
         grid-template-columns: 1fr;
         justify-items: start;
+        padding-left: $m-size;
 
         // Mobile only logo
-        ._algebra_white_logo {
+        ._mobile_only_logo {
             display: none;
         }
 
         ._cog_icon {
             margin-left: $xl-size;
             color: $off-white;
-            font-size: 2rem;
+            font-size: 3rem;
         }
 
         // Settings text
@@ -51,7 +56,8 @@
             color: $off-white;
             text-justify: inter-word;
             margin-left: $m-size;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            padding-bottom: 0.5rem;
         }
     }
 }

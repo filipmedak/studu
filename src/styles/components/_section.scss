@@ -14,6 +14,7 @@
         margin-left: $m-size;
         text-transform: uppercase;
         font-size: 2.6rem;
+        letter-spacing: 2px;
 
         // Icon
         svg {
@@ -44,13 +45,21 @@
         // Section heading
         ._section_title {
             margin-left: $xl-size;
-            font-size: $l-size;
+            padding-left: $xl-size;
+            font-size: 3.75rem;
+
+            // Icon
+            svg {
+                font-size: 4rem;
+                margin-right: $l-size;
+            }
         }
 
         // Section button
         ._plus_square_icon {
             display: block;
-            font-size: 4rem;
+            font-size: 6rem;
+            margin-right: $xl-size;
         }
 
     }

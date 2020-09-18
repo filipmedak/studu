@@ -7,6 +7,12 @@
             grid-template-rows: 1fr;
             row-gap: $m-size;
             margin: $m-size;
+            padding-bottom: $xl-size;
+            font-size: 1.5rem;
+            
+            input, select {
+                transition: 0.1s;
+            }
 
             // Reset css for form elements
             input[type="date"], select {
@@ -14,8 +20,19 @@
                 width: 30rem;
             }
 
+            // Remove date icon
+            input[type="date"]::-webkit-inner-spin-button,
+            input[type="date"]::-webkit-calendar-picker-indicator {
+                opacity: 0;
+                margin-left: -80%;
+                padding-left: 100%;
+            }
+
+            // Todo description input
             ._todo_add_input {
                 padding: 1rem $s-size;
+                border: none;
+                border-bottom: 1px solid $gray;
             }
 
             // Single input allignment
@@ -43,27 +60,58 @@
             }
         }
 
-        // Buttons
-        ._todo_add_btn {
-            color: $green;
-            border: 2px solid $green;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            margin: 0 $s-size;
-            font-weight: bolder;
+        // Submit button div
+        ._submit_btn_div{            
+            //Submit button
+            ._todo_add_btn {
+                color: $green;
+                border: 2px solid $green;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                margin: 0 $s-size;
+                font-weight: bolder;
+                width: 100%;
+                height: 100%;
+                margin-top: $m-size;
+            }
         }
-
-        ._todo_cancel_btn {
-            color: $red;
-            border: 2px solid $red;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            margin: 0 $s-size;
-            font-weight: bolder;
+        
+        // Cancel button div
+        ._cancel_btn_div{
+            // Cancel Button
+            ._todo_cancel_btn {
+                color: $red;
+                border: 2px solid $red;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+                margin: 0 $s-size;
+                font-weight: bolder;
+                width: 100%;
+                height: 100%;
+            }
         }
 
         ._check_icon, ._times_icon  {
             margin-right: $s-size;
+        }
+
+        // Disabled button class
+        ._disabled_btn {
+            opacity: 0.25;
+        }
+
+        // Ready to submit button class
+        ._ready_btn {
+            background: $green;
+            color: $white!important;
+        }
+
+        // Missing input error class
+        ._missing_input{
+            // border-bottom: 2px solid $pink!important;
+            color: $red!important;
+            font-weight: bold!important;
+            border-bottom: 2px solid $red!important;
         }
     }
 } 
@@ -79,12 +127,15 @@
                 grid-template-columns: 30% 30% 30%;
                 grid-template-rows: 1fr 1fr 1fr;
                 row-gap: 2.5rem;
+                font-size: 2rem;
     
+                // Todo description input
                 ._todo_add_input {
                     grid-row: 1;
                     grid-column: 1/4;
                 }
 
+                // Todo date input
                 input[type="date"] {
                     width: 100%;
                 }
@@ -99,16 +150,23 @@
                     }
                 }
 
-                ._todo_add_btn {
+                // Todo add button
+                ._submit_btn_div{
+                    grid-column: 1/3;
                     grid-row: 3;
-                    grid-column: 1;
-                    margin-right: -45%;
+                    max-width: 70%;
+
+                    ._todo_add_btn {
+                        margin-top: 0;
+                    }
                 }
 
-                ._todo_cancel_btn {
+                // Todo cancel button
+                ._cancel_btn_div{
+                    grid-column: 2/4;
                     grid-row: 3;
-                    grid-column: 3;
-                    margin-left: -45%;
+                    max-width: 75%;
+                    margin-left: 30%;
                 }
             }
         }

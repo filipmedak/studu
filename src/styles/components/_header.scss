@@ -7,9 +7,10 @@
     justify-items: center;
     align-items: center; 
     z-index: 1000;
+    font-family: $secondary-font;
     
     // Desktop only image
-    ._algebra_white_logo {
+    ._desktop_only_logo{
         display: none;
     }
 
@@ -20,6 +21,8 @@
         grid-template-rows: 3fr 1fr;
         justify-items: center;
         align-items: center;
+        font-style: italic;
+        opacity: 0.4;
     }
 
     // Active icon 
@@ -49,8 +52,10 @@
 
     .is-active-important, .is-active-homework, .is-active-notes, .is-active-finished {
         span {
-            font-weight: bolder;
+            font-weight: bold;
+            font-style: normal;
         }
+        opacity: 1;
     } 
 
     // Middle Add Icon
@@ -65,7 +70,7 @@
     span {
         color: $off-white;
         align-self: start;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
     }
 
     // Icons sizing
@@ -73,19 +78,6 @@
         font-size: 2.75rem;
         color: $off-white;
     }
-
-    // Underline border on active
-    // .is-active:after {
-    //     position: absolute;
-    //     content: '';
-    //     width: 50px;
-    //     border-bottom: 5px solid red;
-    //     width: 70%;
-    //     transform: translateX(-50%);
-    //     top: 100%;
-    //     left: 50%;
-    //     overflow: hidden;
-    // }
 }
 
 // Desktop version
@@ -93,7 +85,7 @@
     #header_body {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-        justify-items: start;
+        justify-items: stretch;
 
         // Add todo logo
         ._plus_square_icon {
@@ -101,25 +93,53 @@
         }
 
         // Desktop only image
-        ._algebra_white_logo{
+        ._desktop_only_logo{
             display: block;
-            max-height: 3.5rem;
-            justify-self: start;
-            margin: $l-size 0 $m-size $xl-size;
+            // margin-left: $m-size;
+
+            ._algebra_white_logo{
+                display: block;
+                max-height: 3.5rem;
+                margin: $l-size 0 $m-size $l-size;
+            }
         }
 
         // Shared CSS values for header items
         ._header_item {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 0.25fr 1fr;
             grid-template-rows: 1fr;
-            margin: $m-size 0 0 $xl-size;
+            margin: $m-size 0 0 $l-size;
+            
+            svg {
+                font-size: 3.5rem;
+            }
 
             span {
-                font-size: 2rem;
+                font-size: 2.6rem;
                 margin-left: $s-size;
-                max-width: 2rem;
                 align-self: center;
+                justify-self: start;
             }
+        }
+    }
+}
+
+// Extreme big screen
+@media only screen and (min-width: 1500px) {
+    #header_body {
+        // Desktop only image
+        ._desktop_only_logo{
+            margin-left: $m-size;
+
+            ._algebra_white_logo{
+                margin: $l-size 0 $m-size $xl-size;
+                max-height: 4.5rem;
+            }
+        }
+
+        // Shared CSS values for header items
+        ._header_item {
+            margin: $m-size 0 0 $xl-size;
         }
     }
 }

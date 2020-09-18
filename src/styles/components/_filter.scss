@@ -7,6 +7,7 @@
     }
 
     ._filter_form{
+        font-family: $secondary-font;
         font-size: 2rem;
         margin-left: $m-size;
 
@@ -17,7 +18,6 @@
             color: $white;
             padding: 1rem 0;
             max-width: 90%;
-            font-style: italic;
         }
 
         option{
@@ -31,6 +31,11 @@
     #filter_body{
         background: $light-black!important;
         color: $off-white;
+        overflow: auto;
+
+        // Hide side scroll bar (IE, Edge, Firefox)
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
 
         // Hide mobile version filter
         ._filter_form_mobile {
@@ -40,12 +45,21 @@
         // Show desktop version filter
         ._filter_form_dekstop {
             display: block;
-            margin-left: $l-size;
+            // margin-left: $l-size;
+            margin-right: $s-size;
+
+            // Active class
+            ._active_class {
+                opacity: 1!important;
+                font-weight: bolder;
+                color: $white;
+            }
 
             // Main title
             ._filter_select_title {
-               font-size: 2rem; 
+               font-size: 2.5rem; 
                padding: $m-size 0;
+               margin-left: $m-size;
 
                svg {
                    font-size: 2.75rem;
@@ -54,20 +68,33 @@
 
             // Options and logo shared margins
             ._filter_all_classes_option, ._filter_class_option {
-                margin: 0 0 2.5rem $s-size;
-                font-size: 1.75rem;
+                margin: 0 0 2.5rem $l-size;
+                font-size: 2rem;
                 cursor: pointer;
-            }
-            
-            // Class option
-            ._filter_class_option {
-                font-style: italic;
+                opacity: 0.4;
             }
 
             // Option icons
             svg {
                 margin-right: $s-size;
             }
+        }
+    }
+
+    // Hide side scroll bar (Chrome,Safari,Opera)
+    #filter_body::-webkit-scrollbar{
+        display: none;
+    }
+
+}
+
+// Extreme big screen
+@media only screen and (min-width: 1500px) {
+    #filter_body{
+        // Show desktop version filter
+        ._filter_form_dekstop {
+            display: block;
+            margin-left: $l-size;
         }
     }
 }

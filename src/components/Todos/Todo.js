@@ -9,16 +9,48 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // Variables passed through as props
 const Todo = ({ todo, url }) => {
-    const { editBtn } = useContext(AppContext)
+    const { editBtn, toggleEditBtn } = useContext(AppContext)
     // Local variable manipulated by useState & setState hooks
     const [ settingsBtn, changeSettingsBtn ] = useState(false)
+    // eslint-disable-next-line
+    const [ isHover, toggleHover ] = useState(false)
+
+    // Setup classes on mouse enter
+    const addClass = (e) => {
+        const elems = document.querySelectorAll('._todo_body')
+        elems.forEach((elem) => {
+            elem.classList.add("_todo_toned_down")
+        })
+        e.target.classList.remove("_todo_toned_down")
+    }
+
+     // Reset all classes on mouse leave
+     const resetClasses = (e) => {
+        const elems = document.querySelectorAll('._todo_body')
+        elems.forEach((elem) => {
+            elem.classList.remove("_todo_toned_down")
+        })
+    }
     
     return (
-        <>
+        <div className="_todo fade-in"
+            onMouseEnter={ e => {
+                addClass(e)
+                toggleHover(true)
+            }}
+            onMouseLeave={ e => {
+                resetClasses(e)
+                toggleHover(false)
+                if(!editBtn) {
+                    changeSettingsBtn(false)
+                    toggleEditBtn(false)
+                }
+            }}
+        >
             {/* Logic for hiding todos that are being edited */}  
             { !editBtn &&
                 <div 
-                    className="_todo_body" 
+                    className="_todo_body"  
                     onClick={ e => changeSettingsBtn(!settingsBtn) }
                 >
                     <h3>
@@ -45,7 +77,7 @@ const Todo = ({ todo, url }) => {
             <>
                 { settingsBtn && <TodoSettings todo={todo} url={url} settingsBtn={settingsBtn} changeSettingsBtn={changeSettingsBtn}/> }
             </>
-        </>
+        </div>
     )
 }
 

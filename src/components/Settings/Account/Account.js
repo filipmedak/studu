@@ -7,15 +7,17 @@ import UserForm from '../../UserForm'
 import AppContext from '../../../context/app-context'
 // Fontawesome Components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// Modal
+import Modal from '../../Modal'
 
 const Account = () => {
-    const { dispatch } = useContext(AppContext)
+    const { modal, toggleModal } = useContext(AppContext)
     const [ usernameBtn, setUsernameBtn ] = useState(false)
     const [ programBtn, setProgramBtn ] = useState(false)
 
     return (
         <>
-            <div className="_settings_username_body">
+            <div className="_settings_username_body fade-in-top">
                 {/* Change username section toggle */}
                 <button 
                     onClick={ () => setUsernameBtn(!usernameBtn) }
@@ -29,7 +31,7 @@ const Account = () => {
                 }
             </div>
 
-            <div className="_settings_program_body">
+            <div className="_settings_program_body fade-in-top">
                 {/* Change program section toggle */}
                 <button 
                     onClick={ () => setProgramBtn(!programBtn) }
@@ -43,11 +45,13 @@ const Account = () => {
                 }
             </div>
             
-            <div className="_settings_finished_body">
+            {/* Modal activated on delete all todos */}
+            {modal && <Modal />}
+
+            {/* Delete finished todos component */}
+            <div className="_settings_finished_body fade-in-top">
                 <button 
-                    onClick={ (e) => {
-                        window.confirm("Are you sure you want to delete all finished tasks?") 
-                        && dispatch({ type: 'DELETE_FINISHED'})} }
+                    onClick={ () => { toggleModal(!modal) }}
                     className="_settings_theme_main_btn"
                 >
                     <FontAwesomeIcon icon={['fas', 'trash-alt']} className="_trash_alt_icon" />

@@ -1,5 +1,7 @@
 // Dark mode
 .dark_mode {
+    // Custom variables
+    $darken-white: darken($color: $white, $amount: 15);
     // Core background
     background: $lightest-black!important;
     color: $white;
@@ -26,20 +28,40 @@
 
         // Add todo buttons
         ._todo_add_btn, ._todo_cancel_btn {
-            background: $white;
+            background: $darken-white;
         }
 
         // Todo details (class, date)
         ._todo_body {
             ._todo_details {
-                color: $white;
+                color: $darken-white;
             }
         }
 
         // Todo settings buttons
         ._todo_settings, ._todo_toggle {
             button {
-                background: $white;
+                background: $darken-white;
+            }
+
+            #submit_btn {
+                color: $green;
+            }
+        }
+
+        // Create todo
+        ._todos_add form{
+            input, select {
+                background: transparent;
+                color: $off-white;
+            }
+
+            ._todo_add_input {
+                color: $off-white!important;
+            }
+
+            ._ready_btn {
+                background: darken($color: $green, $amount: 10)
             }
         }
     }
@@ -61,9 +83,42 @@
             color: $off-white;
         }
 
+        input, select {
+            background: $darken-white!important;
+        }
+
         // Sub sections button
         ._settings_theme_secondary_btn, ._settings_add_remove_class_button {
-            background: $white;
+            background: $darken-white;
+            color: $green!important;
+        }
+
+        // About 
+        ._settings_about_body p{
+            color: $off-white;
+        }
+    }
+
+    // Modal
+    ._modal_background {
+        background: rgba($color: $lightest-black, $alpha: 0.85);
+
+        // Modal content inside
+        ._modal_content {
+
+            // Shared buttons CSS
+            button {
+                background: $darken-white!important;
+                color: black!important;
+                border-color: $darken-white!important;
+            }
+
+            // Yes button
+            ._modal_yes_btn {
+                background: $red!important;
+                color: $white!important;
+                border-color: $red!important;
+            }
         }
     }
 }

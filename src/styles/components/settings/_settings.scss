@@ -1,11 +1,16 @@
-@import './settings_apperance';
 @import './settings_head';
 
 #settings_body {
     // Global grid and margin
     grid-area: todos;
-    grid-row: 2/4;
+    grid-row: 2/10;
     margin: $l-size;
+    overflow: auto;
+    height: 100%;
+
+    // Hide side scroll bar (IE, Edge, Firefox)
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
 
     // Button reset
     button {
@@ -21,14 +26,14 @@
         font-size: 2.25rem;
         border-top: 1px solid lighten($silver, 40%);
         padding: $l-size 0;
-        overflow: auto;
-
+        
         // Main columns
         ._settings_main_btn {
             display: grid;
             grid-template-columns: 1fr 5fr 1fr;
             justify-items: start;
             font-weight: bold;
+            font-size: 2.5rem;
 
             svg {
                 margin-right: $m-size;
@@ -45,12 +50,17 @@
     // Sub rows shared settings
     ._settings_username_body, ._settings_program_body, ._settings_finished_body, ._settings_add_class_body, ._settings_remove_class_body, ._settings_theme_body {
         display: grid;
-        margin: $m-size 0 $m-size $s-size;
+        margin: $m-size 0 $m-size $xl-size;
 
         button {
             justify-self: start;
             color: $silver!important;
         }
+    }
+
+    // Dark theme margin-top
+    ._settings_theme_body {
+        margin-top: $l-size;
     }
 
     // Dark theme toggle icon
@@ -88,6 +98,7 @@
     // About section
     ._settings_about_body {
         font-size: $m-size;
+        margin-left: $xl-size;
 
         :first-child {
             margin-top: $l-size;
@@ -100,15 +111,31 @@
     }
 }
 
+// Hide side scroll bar (Chrome,Safari,Opera)
+#settings_body::-webkit-scrollbar{
+    display: none;
+}
+
 // Desktop version
 @media only screen and (min-width: $desktop-breakpoint) {
     #settings_body {
         // Global grid and margin
         margin-top: -6rem;
+        max-width: 85%;
+
+            // Main four settings rows (Apperance, Account, Classes, About)
+            ._settings_apperance, ._settings_account, ._settings_classes, ._settings_about {
+                ._settings_main_btn{
+                    font-size: 3rem;
+                }
+
+                font-size: 2.5rem;
+            }
+            
 
             // Sub rows shared settings
             ._settings_username_body, ._settings_program_body, ._settings_finished_body, ._settings_add_class_body, ._settings_remove_class_body, ._settings_theme_body {
-                margin-left: 15rem;
+                margin-left: 15%;
             }
 
             // Onclick shown sub rows details shared settings
@@ -121,7 +148,8 @@
             // About section
             ._settings_about_body {
                 font-size: 2rem;
-                margin: 2rem 0 0 10rem;
+                margin: 2rem 0 0 15%;
             }
+
         }
     }

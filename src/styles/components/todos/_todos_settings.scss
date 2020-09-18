@@ -4,7 +4,8 @@
     ._todo_settings {
         display: flex;
         justify-content: space-evenly;
-        margin: 0.5rem auto $xl-size auto;
+        margin: 2rem auto $l-size auto;
+        transition: 0.4s;
 
         // Icons
         ._check_icon, ._edit_icon, ._trash_alt_icon, ._todo_finish_btn {
@@ -16,6 +17,7 @@
             padding: 0.5rem $m-size;
             border-radius: 0.5rem;
             font-weight: bolder;
+            transition: 0.4s;
         }
 
         ._todo_finish_btn {
@@ -32,6 +34,25 @@
             color: $red;
             border: 2px solid $red;
         }
+
+        // Hover settings for buttons        
+        ._todo_finish_btn:hover {
+            color: $white;
+            background: $green;
+            border: 2px solid $green;
+        }
+
+        ._todo_edit_btn:hover {
+            color: $white;
+            background: $gray;
+            border: 2px solid $gray;
+        }
+
+        ._todo_remove_btn:hover {
+            color: $white;
+            background: $red;
+            border: 2px solid $red;
+        }
     }
 
     // Toggle (finish/return)
@@ -39,7 +60,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: $s-size;
-        margin: auto $m-size;
+        margin: $m-size;
         column-gap: $m-size;
 
         // Icons
@@ -49,9 +70,11 @@
 
         // Buttons
         ._todo_return_btn, ._todo_delete_btn {
-            padding: 0.5rem;
+            padding: 0.5rem $m-size;
             border-radius: 0.5rem;
             font-weight: bolder;
+            transition: 0.4s;
+            font-size: 2rem;
         }
 
         ._todo_return_btn {
@@ -61,6 +84,19 @@
 
         ._todo_delete_btn {
             color: $red;
+            border: 2px solid $red;
+        }
+
+        // Hover settings for buttons        
+        ._todo_return_btn:hover {
+            color: $white;
+            background: $green;
+            border: 2px solid $green;
+        }
+
+        ._todo_delete_btn:hover {
+            color: $white;
+            background: $red;
             border: 2px solid $red;
         }
     }
@@ -75,6 +111,7 @@
         column-gap: $l-size;
         padding-left: $s-size;
         padding-right: $xl-size;
+        font-size: 2rem;
 
         // Buttons
         ._todo_finish_btn, ._todo_edit_btn, ._todo_remove_btn {
@@ -86,6 +123,7 @@
     ._todo_toggle {
         column-gap: $xl-size!important;
         padding-right: $xl-size;
+        padding-bottom: $l-size;
 
         // Buttons
         ._todo_return_btn, ._todo_delete_btn {

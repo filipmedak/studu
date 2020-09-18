@@ -17,16 +17,17 @@ import data from '../json/data.json'
 import '../styles/App.scss'
 // Font Awesome Logos
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircle, faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faEdit, faCheck, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight, faLongArrowAltLeft, faExchangeAlt, faPlusSquare, faCalendarCheck, faClipboard, faCircleNotch, faAdjust } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faEdit, faCheck, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight, faLongArrowAltLeft, faExchangeAlt, faPlusSquare, faCalendarCheck, faClipboard, faCircleNotch, faAdjust, faUniversity, faGraduationCap, faListOl, faToggleOn, faToggleOff } from '@fortawesome/free-solid-svg-icons'
 import { faCircle as farFaCircle, faCalendarAlt, faBookmark, faStar as farFaStar, faStickyNote as farFaStickyNote, faClipboard as farFaClipboard, faCalendarCheck as farFaCalendarCheck } from '@fortawesome/free-regular-svg-icons'
 
 const App = () => {
     // Global variables & functions spread throught components using Context Hook
-    const [ todos, dispatch ] = useReducer(todosReducer, [])
+    let [ todos, dispatch ] = useReducer(todosReducer, [])
     const [ user, userDispatch ] = useReducer(userReducer, {}) 
     const [ filterClass, setFilterClass ] = useState('')
     const [ editBtn, toggleEditBtn ] = useState(false)
     const [ addBtn, toggleAddBtn ] = useState(false)
+    const [modal, toggleModal] = useState(false)
     const isUser = user.id ? true : false
     const classes = user.id && user.classes
     const isMobile = window.innerWidth < 992
@@ -34,7 +35,7 @@ const App = () => {
     const [ darkMode, toggleDarkMode ] = useState(isUser ? user.darkMode : false)
     user.darkMode ? document.querySelector('#root').classList.add('dark_mode') : document.querySelector('#root').classList.remove('dark_mode')
     // Font Awesome Library
-    library.add(faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faBookmark, faCalendarAlt, farFaCircle, faCircle, faCheck, faEdit, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight,  faLongArrowAltLeft, faExchangeAlt, faPlusSquare, farFaStar, farFaStickyNote, farFaClipboard, farFaCalendarCheck, faCalendarCheck, faClipboard, faCircleNotch, faAdjust )
+    library.add(faStar, faBook, faStickyNote, faFolderMinus, faEllipsisV, faBookmark, faCalendarAlt, farFaCircle, faCircle, faCheck, faEdit, faTrashAlt, faUndoAlt, faTimes, faQuestion, faCog, faUser, faInfoCircle, faChalkboardTeacher, faAngleRight,  faLongArrowAltLeft, faExchangeAlt, faPlusSquare, farFaStar, farFaStickyNote, farFaClipboard, farFaCalendarCheck, faCalendarCheck, faClipboard, faCircleNotch, faAdjust, faUniversity, faGraduationCap, faListOl, faToggleOn, faToggleOff )
     // Grab array of objects from localStorage and save it in todo global variable - if exist render
     // Hook that runs only once on page load
     useEffect(() => {
@@ -55,9 +56,9 @@ const App = () => {
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(user))
     }, [ user ])
-
+    
     return (
-        <AppContext.Provider value={{ todos, dispatch, user, userDispatch, data, classes, filterClass, setFilterClass, editBtn, toggleEditBtn, addBtn, toggleAddBtn, isUser, darkMode, toggleDarkMode, isMobile }}>
+        <AppContext.Provider value={{ todos, dispatch, user, userDispatch, data, classes, filterClass, setFilterClass, editBtn, toggleEditBtn, addBtn, toggleAddBtn, isUser, darkMode, toggleDarkMode, isMobile, modal, toggleModal }}>
             <BrowserRouter>
                 {/* Init user setup */}
                 {

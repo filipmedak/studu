@@ -29,7 +29,8 @@ select {
         "filter"
         "todos"
         "header";
-    // overflow: hidden;
+    overflow: hidden;
+    background: #F8F8F8;
 }
 
 // Base Custom Styling
@@ -38,8 +39,10 @@ a{
     color: $white;
 }
 
-button {
+// Pointer on clickable items
+button, select, input, ._plus_square_icon, ._todo_body {
     cursor: pointer;
+    background: transparent;
 }
 
 button:disabled {
@@ -67,6 +70,7 @@ button:disabled {
     background: $gray!important;
 }
 
+
 // Desktop version
 @media only screen and (min-width: $desktop-breakpoint) {
     // Root React DIV
@@ -77,8 +81,8 @@ button:disabled {
         "filter todos todos"
         "filter todos todos"
         "footer todos todos";
-        grid-template-columns: 1fr 2.75fr;
-        grid-template-rows: 0.5fr 1fr 1fr 1fr 0.3fr;
+        grid-template-columns: 22.5% 80%;
+        grid-template-rows: 15% 25% 25% 25% 10%;
     }
 }
 

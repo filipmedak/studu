@@ -12,7 +12,7 @@ const Classes = () => {
     return (
         <>
             {/* Change remove section toggle */}
-            <div className="_settings_add_class_body">
+            <div className="_settings_add_class_body fade-in-top">
                 <button 
                     onClick={ () => {
                         setAddClassBtn(!addClassBtn) 
@@ -28,7 +28,7 @@ const Classes = () => {
             </div>
             
             {/* Change add class section toggle */}
-            <div className="_settings_remove_class_body">
+            <div className="_settings_remove_class_body fade-in-top">
                 <button 
                     onClick={ () => {
                         setRemoveClassBtn(!removeClassBtn) 
