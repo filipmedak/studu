@@ -16,6 +16,7 @@
     button {
         border: none;
         background: none;
+        transition: 0.4s;
     }
 
     // Shared CSS settings 
@@ -108,6 +109,12 @@
             margin-top: $l-size;
             font-weight: bold;
         }
+    }
+
+    // Shared CSS for buttons
+    ._settings_theme_secondary_btn:hover, ._settings_add_remove_class_button:hover {
+        background: $green;
+        color: $white!important;
     }
 }
 

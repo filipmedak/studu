@@ -77,6 +77,13 @@
     display: none;
 }
 
+// Extremly small screens (Iphone SE, Samsung 5)
+@media only screen and (max-width: 375px) {
+    #todos_body ._todo_body {
+        margin: $s-size $l-size 0 $s-size;
+    }
+}
+
 // Desktop version
 @media only screen and (min-width: $desktop-breakpoint) {
     #todos_body {

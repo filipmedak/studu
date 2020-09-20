@@ -93,6 +93,12 @@
             color: $green!important;
         }
 
+        // Shared CSS for buttons
+        ._settings_theme_secondary_btn:hover, ._settings_add_remove_class_button:hover {
+            background: $green;
+            color: $white!important;
+        }
+
         // About 
         ._settings_about_body p{
             color: $off-white;
@@ -101,10 +107,11 @@
 
     // Modal
     ._modal_background {
-        background: rgba($color: $lightest-black, $alpha: 0.85);
+        background: rgba($color: $lightest-black, $alpha: 0.85)!important;
 
         // Modal content inside
         ._modal_content {
+            background: $lightest-black;
 
             // Shared buttons CSS
             button {
